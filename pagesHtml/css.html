@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aprendiendo CSS</title>
+    <link rel="stylesheet" href="/css/styleMain.css">
+</head>
+
+<body>
+    <div id="divPrincipal">
+        <div id="testDiv">
+            <h1 id="h1test"> Probando el display: block</h1>
+        </div>
+
+        <div id="testDiv2">
+            <h1 id="h1test2"> Probando el display: block</h1>
+        </div>
+    </div>
+
+
+
+    <div>
+
+
+        <h1>Efecto Morphing usando animaciones con @keyframes</h1>
+        <div class="morphing-bg"></div>
+
+        <h1>1. ¿Qué son las animaciones CSS y @keyframes?</h1>
+        <p>
+            Las animaciones CSS permiten cambiar gradualmente las propiedades de un elemento HTML (como color, posición,
+            tamaño, forma, etc.) a lo largo del tiempo, creando efectos visuales dinámicos. La regla @keyframes es el
+            núcleo de las animaciones CSS, ya que define los estados o puntos clave (keyframes) por los que pasa una
+            animación.
+        </p>
+        <ul>
+            <li>
+                Definición de @keyframes: Es una regla CSS que especifica cómo cambian las propiedades de un elemento en
+                diferentes momentos de la animación. Cada @keyframes define una secuencia de estilos en porcentajes (de
+                0% a 100%) o usando palabras clave (from y to).
+            </li>
+            <li>
+                Uso con la propiedad animation: La regla @keyframes se combina con la propiedad animation para aplicar
+                la animación a un elemento, controlando aspectos como duración, repetición, suavidad y retraso.
+            </li>
+        </ul>
+
+        <h3>Ejemplo básico de @keyframes:</h3>
+
+        <p>
+            @keyframes slide { <br>
+            0% { transform: translateX(0); } /* Inicio: posición inicial */ <br>
+            100% { transform: translateX(100px); } /* Final: mueve 100px a la derecha */ <br>
+            } <br>
+        </p>
+
+        <h2>2. Estructura y sintaxis de @keyframes</h2>
+
+        <h4>La sintaxis de @keyframes es la siguiente:</h4>
+        <p>
+            @keyframes nombreDeLaAnimacion { <br>
+            0% { /* Propiedades iniciales */ } <br>
+            50% { /* Propiedades intermedias */ } <br>
+            100% { /* Propiedades finales */ } <br>
+            } <br>
+        </p>
+
+        <ul>
+
+            <li>nombreDeLaAnimacion: Un nombre único que identifies la animación (puedes elegir cualquier nombre, como
+                gradient o morph en tu código).</li>
+            <li>Porcentajes (0%, 50%, 100%): Representan puntos en el tiempo de la animación. 0% es el inicio, 100% es
+                el final, y puedes agregar puntos intermedios (como 25%, 50%, etc.).</li>
+            <li>Alternativa con from y to: En lugar de porcentajes, puedes usar from (equivalente a 0%) y to
+                (equivalente a 100%) para animaciones más simples.</li>
+
+        </ul>
+
+        <h3>Ejemplo con from y to:</h3>
+
+        <p>
+            @keyframes fade { <br>
+            from { opacity: 1; } <br>
+            to { opacity: 0; } <br>
+            } <br>
+        </p>
+
+        <h2>3. Propiedad animation</h2>
+        <p>
+            La propiedad animation vincula una animación definida con @keyframes a un elemento HTML. Es una propiedad
+            abreviada que combina varias subpropiedades:
+        </p>
+        <p>
+            animation: nombre duracion funcion-de-tiempo retraso iteraciones direccion llenado alternancia;
+        </p>
+
+        <h3>Subpropiedades de animation</h3>
+
+        <ul>
+            <li>animation-name: Nombre de la animación definida en @keyframes (por ejemplo, gradient o morph).</li>
+            <li>animation-duration: Tiempo que tarda la animación en completarse (en segundos s o milisegundos ms, por
+                ejemplo, 8s).</li>
+            <li>animation-timing-function: Define la aceleración de la animación (por ejemplo, ease, linear, ease-in,
+                ease-out)</li>
+            <li>animation-delay: Retraso antes de que comience la animación (por ejemplo, 2s).</li>
+            <li>animation-iteration-count: Número de veces que se repite la animación (por ejemplo, infinite para
+                repetición continua o un número como 3).</li>
+            <li>animation-direction: Dirección de la animación (normal, reverse, alternate, alternate-reverse).</li>
+            <li>animation-fill-mode: Define cómo se aplican los estilos antes y después de la animación (none, forwards,
+                backwards, both).</li>
+            <li>animation-play-state: Controla si la animación está en ejecución (running) o pausada (paused).</li>
+        </ul>
+
+        <h2> 5. Guía práctica para usar @keyframes</h2>
+
+        <h3>Pasos para crear una animación CSS</h3>
+
+        <ul>
+            <li>Define la animación con @keyframes</li>
+            <ul>
+                <li>Elige un nombre descriptivo (por ejemplo, fade, slide, rotate).</li>
+                <li>Especifica los estados (0%, 50%, 100% o from, to) y las propiedades CSS que cambiarán.</li>
+            </ul>
+            <li>Aplica la animación con animation</li>
+            <ul>
+                <li>Selecciona el elemento con un selector CSS (por ejemplo, .clase o #id).</li>
+                <li>Usa la propiedad animation para vincular el @keyframes y configurar duración, repetición, etc.</li>
+            </ul>
+            <li>Prueba y ajusta</li>
+            <ul>
+                <li>Usa herramientas de desarrollador del navegador (F12) para inspeccionar la animación.</li>
+                <li>Ajusta la animation-timing-function para cambiar la sensación (por ejemplo, ease para suavidad,
+                    linear para movimiento constante).</li>
+            </ul>
+            <li>Optimiza para rendimiento</li>
+            <ul>
+                <li>Usa propiedades que el navegador pueda animar eficientemente (como transform y opacity).</li>
+                <li>Evita animar propiedades como width o height en elementos grandes, ya que causan repintado. </li>
+            </ul>
+        </ul>
+        <h3>Propiedades recomendadas para animar</h3>
+        <ul>
+            <li>Alta eficiencia (usan GPU): transform (translate, scale, rotate), opacity, filter.</li>
+            <li>Baja eficiencia (causan repintado): width, height, margin, padding, border.</li>
+        </ul>
+
+
+
+        <h2>6. Ejemplos adicionales de animaciones con @keyframes</h2>
+        <p>A continuación, se presentan ejemplos prácticos que muestran diferentes usos de <code>@keyframes</code>,
+            desde efectos simples hasta más complejos, para que veas su versatilidad.</p>
+
+        <h3>Ejemplo 1: Desvanecimiento (Fade)</h3>
+        <p>Anima la opacidad de un elemento para que aparezca y desaparezca.</p>
+        <div class="example-container">
+            <div class="fade example-box"></div>
+            <pre><code>.fade {
+    width: 100px;
+    height: 100px;
+    background: #23a6d5;
+    animation: fade 2s ease infinite;
+}
+
+@keyframes fade {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}</code></pre>
+            <ul>
+                <li><strong>Qué hace</strong>: El elemento se desvanece (de opaco a transparente) y reaparece en un
+                    ciclo de 2 segundos.</li>
+                <li><strong>Uso</strong>: Ideal para notificaciones o elementos decorativos.</li>
+            </ul>
+        </div>
+
+        <h3>Ejemplo 2: Rotación</h3>
+        <p>Rota un elemento continuamente.</p>
+        <div class="example-container">
+            <div class="rotate example-box"></div>
+            <pre><code>.rotate {
+    width: 100px;
+    height: 100px;
+    background: #e73c7e;
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}</code></pre>
+            <ul>
+                <li><strong>Qué hace</strong>: El elemento gira 360 grados en 4 segundos, con un movimiento constante
+                    (<code>linear</code>).</li>
+                <li><strong>Uso</strong>: Útil para íconos de carga o efectos decorativos.</li>
+            </ul>
+        </div>
+
+        <h3>Ejemplo 3: Escala pulsante</h3>
+        <p>Hace que un elemento crezca y se reduzca repetidamente.</p>
+        <div class="example-container">
+            <div class="pulse example-box"></div>
+            <pre><code>.pulse {
+    width: 100px;
+    height: 100px;
+    background: #23d5ab;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}</code></pre>
+            <ul>
+                <li><strong>Qué hace</strong>: El elemento se agranda un 20% y vuelve a su tamaño original en 1.5
+                    segundos.</li>
+                <li><strong>Uso</strong>: Ideal para botones o elementos que necesitan atención.</li>
+            </ul>
+        </div>
+
+        <h3>Ejemplo 4: Animación combinada</h3>
+        <p>Combina múltiples propiedades como en tu código.</p>
+        <div class="example-container">
+            <div class="combined example-box"></div>
+            <pre><code>.combined {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, #ee7752, #e73c7e);
+    animation: move-and-color 3s ease infinite;
+}
+
+@keyframes move-and-color {
+    0% { transform: translateX(0); background: linear-gradient(45deg, #ee7752, #e73c7e); }
+    50% { transform: translateX(100px); background: linear-gradient(45deg, #23a6d5, #23d5ab); }
+    100% { transform: translateX(0); background: linear-gradient(45deg, #ee7752, #e73c7e); }
+}</code></pre>
+            <ul>
+                <li><strong>Qué hace</strong>: El elemento se mueve horizontalmente y cambia el gradiente de fondo.</li>
+                <li><strong>Uso</strong>: Similar a tu código, pero combina movimiento y color.</li>
+            </ul>
+        </div>
+
+        <h2>7. Mejores prácticas para animaciones CSS</h2>
+        <ol>
+            <li>
+                <strong>Usa propiedades optimizadas</strong>:
+                <ul>
+                    <li>Prefiere <code>transform</code> y <code>opacity</code> para animaciones fluidas, ya que son
+                        aceleradas por GPU.</li>
+                    <li>Evita animar propiedades como <code>width</code>, <code>height</code>, <code>margin</code>, o
+                        <code>padding</code>, ya que causan repintado y pueden ser lentas.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>Controla la duración</strong>:
+                <ul>
+                    <li>Duraciones cortas (0.3s–2s) para interacciones (botones, hover).</li>
+                    <li>Duraciones largas (5s–10s) para efectos de fondo, como tu gradiente.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Elige la función de tiempo adecuada</strong>:
+                <ul>
+                    <li><code>ease</code>: Suavidad natural (acelera al inicio, desacelera al final).</li>
+                    <li><code>linear</code>: Movimiento constante, ideal para animaciones continuas.</li>
+                    <li><code>ease-in</code>, <code>ease-out</code>, <code>cubic-bezier</code>: Para efectos más
+                        personalizados.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Prueba en diferentes navegadores</strong>:
+                <ul>
+                    <li>Usa prefijos (<code>-webkit-</code>) para compatibilidad con navegadores antiguos (aunque menos
+                        necesario hoy).</li>
+                    <li>Verifica el rendimiento en dispositivos móviles.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Evita animaciones excesivas</strong>:
+                <ul>
+                    <li>Demasiadas animaciones pueden distraer o afectar el rendimiento.</li>
+                    <li>Usa <code>animation-play-state: paused</code> para pausar animaciones cuando no sean necesarias.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>Usa <code>will-change</code> para optimizar</strong>:
+                <ul>
+                    <li>Indica al navegador qué propiedades se animarán para optimizar el rendimiento.</li>
+                    <li>Ejemplo:
+                        <pre><code>.morphing-bg {
+    will-change: background-position, border-radius;
+}</code></pre>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>8. Comparación con tu código alternativo (<code>morphing-bg2</code>)</h2>
+        <p>Tu segundo ejemplo usa <code>transition</code> en lugar de <code>@keyframes</code>. Aquí una comparación
+            rápida:</p>
+        <ul>
+            <li>
+                <strong>Con <code>@keyframes</code> (<code>morphing-bg</code>)</strong>:
+                <ul>
+                    <li><strong>Ventaja</strong>: Animación continua y automática, ideal para efectos de fondo.</li>
+                    <li><strong>Desventaja</strong>: Requiere definir <code>@keyframes</code>, lo que puede ser más
+                        código.</li>
+                    <li><strong>Ejemplo</strong>: Tu gradiente y morphing se ejecutan sin interacción del usuario.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Con <code>transition</code> (<code>morphing-bg2</code>)</strong>:
+                <ul>
+                    <li><strong>Ventaja</strong>: Más simple, no requiere <code>@keyframes</code>, ideal para
+                        interacciones.</li>
+                    <li><strong>Desventaja</strong>: Solo se activa con eventos como <code>:hover</code>, no es
+                        continuo.</li>
+                    <li><strong>Ejemplo</strong>: El gradiente y morphing solo ocurren al pasar el ratón.</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Cuándo usar cada uno</strong>:</p>
+        <ul>
+            <li>Usa <code>@keyframes</code> para animaciones automáticas o cíclicas (como tu <code>morphing-bg</code>).
+            </li>
+            <li>Usa <code>transition</code> para cambios basados en interacción (como <code>morphing-bg2</code>).</li>
+        </ul>
+
+        <h2>9. Guía práctica para implementar animaciones como las tuyas</h2>
+        <h3>Paso 1: Define el objetivo</h3>
+        <ul>
+            <li><strong>Tu caso</strong>: Quieres un gradiente que se mueva y un elemento que cambie de forma
+                cíclicamente.</li>
+            <li>Propiedades a animar: <code>background-position</code> (para el gradiente) y <code>border-radius</code>
+                (para el morphing).</li>
+        </ul>
+        <h3>Paso 2: Estructura el HTML</h3>
+        <ul>
+            <li>Crea un <code>&lt;div&gt;</code> con la clase correspondiente (por ejemplo, <code>.morphing-bg</code>).
+            </li>
+            <li>Asegúrate de que el contenedor sea visible y tenga dimensiones adecuadas.</li>
+        </ul>
+        <h3>Paso 3: Escribe el CSS</h3>
+        <ul>
+            <li>Define el estilo base (colores, tamaño, sombra, borde).</li>
+            <li>Crea <code>@keyframes</code> para cada efecto (por ejemplo, <code>gradient</code> y <code>morph</code>).
+            </li>
+            <li>Aplica la animación con <code>animation</code>.</li>
+        </ul>
+        <h3>Paso 4: Prueba y ajusta</h3>
+        <ul>
+            <li>Usa las herramientas de desarrollador (F12) para ver la animación en tiempo real.</li>
+            <li>Ajusta la duración (<code>animation-duration</code>) o la función de tiempo
+                (<code>animation-timing-function</code>) según el efecto deseado.</li>
+        </ul>
+        <h3>Paso 5: Optimiza</h3>
+        <ul>
+            <li>Asegúrate de que las propiedades animadas sean eficientes.</li>
+            <li>Considera agregar <code>will-change</code> si la animación es compleja.</li>
+        </ul>
+
+        <h2>10. Ejemplo avanzado inspirado en tu código</h2>
+        <p>Aquí hay un ejemplo que combina tu gradiente y morphing, pero agrega un efecto de escala y opacidad para
+            hacerlo más dinámico:</p>
+        <div class="example-container">
+            <div class="advanced-morph example-box"></div>
+            <pre><code>.advanced-morph {
+    width: 100%;
+    max-width: 1000px;
+    height: 300px;
+    background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite, morph 5s ease infinite, pulse-advanced 3s ease infinite;
+    border-radius: 20px;
+    box-shadow: 5px 15px 20px rgba(0, 0, 0, 0.4);
+    border: 2.5px solid #eee;
+    will-change: background-position, border-radius, transform, opacity;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes morph {
+    0% { border-radius: 20px; }
+    25% { border-radius: 30px 15px 30px 15px; }
+    50% { border-radius: 15px 30px 15px 30px; }
+    75% { border-radius: 30px 15px 30px 15px; }
+    100% { border-radius: 20px; }
+}
+
+@keyframes pulse-advanced {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}</code></pre>
+            <ul>
+                <li><strong>Qué hace</strong>: Combina el movimiento del gradiente, el cambio de forma, y un efecto
+                    pulsante (escala y opacidad).</li>
+                <li><strong>HTML</strong>:
+                    <pre><code>&lt;div class="advanced-morph"&gt;&lt;/div&gt;</code></pre>
+                </li>
+            </ul>
+        </div>
+
+        <h2>11. Preguntas frecuentes</h2>
+        <ul>
+            <li>
+                <strong>¿Puedo pausar una animación?</strong>
+                <p>Sí, usa <code>animation-play-state: paused</code> (por ejemplo, con <code>:hover</code>):</p>
+                <pre><code>.morphing-bg:hover {
+    animation-play-state: paused;
+}</code></pre>
+            </li>
+            <li>
+                <strong>¿Cómo hago una animación solo una vez?</strong>
+                <p>Cambia <code>infinite</code> por un número, como <code>animation: gradient 8s ease 1</code>.</p>
+            </li>
+            <li>
+                <strong>¿Puedo combinar múltiples animaciones?</strong>
+                <p>Sí, como en tu código, separa las animaciones con comas en <code>animation</code>.</p>
+            </li>
+        </ul>
+
+        <h2>12. Conclusión</h2>
+        <p>Las animaciones CSS con <code>@keyframes</code> son una herramienta poderosa para crear efectos visuales
+            dinámicos. Tu código (<code>morphing-bg</code>) es un excelente ejemplo de cómo combinar múltiples
+            animaciones para lograr un efecto complejo (gradiente en movimiento y morphing). La alternativa con
+            <code>transition</code> (<code>morphing-bg2</code>) es más simple pero limitada a interacciones. Para
+            animaciones continuas como las tuyas, <code>@keyframes</code> es la mejor opción por su flexibilidad y
+            eficiencia.
+        </p>
+        <p><strong>Siguientes pasos</strong>:</p>
+        <ul>
+            <li>Si quieres explorar más, prueba animar otras propiedades como <code>transform</code>,
+                <code>filter</code>, o <code>box-shadow</code>.
+            </li>
+            <li>Si necesitas un efecto específico (por ejemplo, pausar la animación en hover o cambiar colores), puedo
+                ayudarte a modificarlo.</li>
+            <li>Si tienes dudas sobre alguna parte (por ejemplo, optimización o compatibilidad), ¡dímelo!</li>
+        </ul>
+
+
+        <h1>Transiciones CSS (transition) en lugar de animaciones</h1>
+        <div class="morphing-bg2"></div>
+
+        <p>En lugar de animar continuamente con @keyframes, puedes usar la propiedad transition para cambiar propiedades
+            CSS (como background-position o border-radius) cuando ocurre un evento, como un :hover, un cambio de clase,
+            o una interacción controlada por JavaScript. Esto no crea una animación infinita automática, pero puede
+            simular cambios suaves.
+            Ejemplo: Gradiente que cambia en hover</p>
+
+        <p>
+            .morphing-bg {<br>
+            width: 100%;<br>
+            max-width: 1000px;<br>
+            height: 300px;<br>
+            background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);<br>
+            background-size: 400% 400%;<br>
+            background-position: 0% 50%;<br>
+            border-radius: 20px;<br>
+            box-shadow: 5px 15px 20px rgba(0, 0, 0, 0.4);<br>
+            border: 2.5px solid #eee;<br>
+            transition: background-position 1s ease, border-radius 0.5s ease;<br>
+            } <br>
+            .morphing-bg:hover {<br>
+            background-position: 100% 50%;<br>
+            border-radius: 30px 15px 30px 15px;<br>
+            } <br>
+        </p>
+
+        <h2>
+            Cómo funciona:
+        </h2>
+        <p>
+            La propiedad transition hace que los cambios en background-position y border-radius sean suaves cuando el
+            usuario pasa el ratón por encima del elemento.
+            No necesitas @keyframes, pero el efecto solo ocurre en respuesta a una interacción (como :hover).
+        </p>
+
+        <h2>Limitación:</h2>
+        <p>
+            No es una animación infinita; solo ocurre cuando se activa un evento (como :hover, :focus, o un cambio de
+            clase).
+            No puedes lograr ciclos complejos como los de @keyframes (por ejemplo, ir de 0% a 100% y volver a 0%
+            automáticamente).
+        </p>
+
+    </div>
+</body>
+
+</html>

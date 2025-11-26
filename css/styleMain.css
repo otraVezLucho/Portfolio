@@ -1,0 +1,96 @@
+html{
+    background-color: rgb(194, 188, 188);
+    text-align: justify;
+    font-size: 16px;
+    font-family: arial;
+    font-weight: lighter;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#testDiv, #testDiv2{
+    display: inline-block;
+    background-color: aqua;
+    height: 200px;
+    width: 300px;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 10px;
+}
+#divPrincipal{
+    border: 1px solid black;
+}
+
+
+#h1test, #h1test2 {
+    margin: 0;
+}
+
+h1{
+    color: #eee;
+}
+h2{
+    color: #eee;
+}
+h3{
+    color: #eee;
+}
+.morphing-bg {
+    width: 1000px; /* Establece un ancho fijo de 1000px para el elemento */
+    height: 300px; /* Define una altura fija de 300px */
+    background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); /* Crea un gradiente lineal horizontal (90 grados) con 4 colores */
+    background-size: 400% 400%; /* Aumenta el tamaño del gradiente al 400% para permitir un movimiento amplio */
+    animation: gradient 8s ease infinite, morph 5s ease infinite; /* Aplica dos animaciones: 'gradient' (8s, suavizada, infinita) y 'morph' (5s, suavizada, infinita) */
+    border-radius: 20px; /* Establece esquinas redondeadas iniciales de 20px */
+    transform-style: preserve-3d; /* Habilita el contexto 3D para transformaciones, aunque no se usa aquí (puede eliminarse si no hay transformaciones 3D) */
+    box-shadow: 5px 15px 20px rgba(0, 0, 0, 0.4); /* Agrega una sombra (desplazamiento x: 5px, y: 15px, difuminado: 20px, opacidad: 0.4) */
+    border: 2.5px solid #eee; /* Añade un borde sólido de 2.5px, color gris claro */
+}
+
+@keyframes gradient {
+    0% { /* Punto inicial de la animación 'gradient' */
+        background-position: 0% 50%; /* Coloca el gradiente en la posición inicial (izquierda-centro) */
+    }
+    50% { /* Punto medio de la animación (a los 4s, ya que la duración total es 8s) */
+        background-position: 100% 50%; /* Mueve el gradiente a la posición derecha-centro */
+    }
+    100% { /* Punto final de la animación (vuelve al inicio para el ciclo infinito) */
+        background-position: 0% 50%; /* Regresa el gradiente a la posición inicial */
+    }
+}
+
+@keyframes morph {
+    0% { /* Punto inicial de la animación 'morph' */
+        border-radius: 20px; /* Esquinas redondeadas uniformes (20px en todos los lados) */
+    }
+    25% { /* Aproximadamente 1.25s en una animación de 5s */
+        border-radius: 30px 15px 30px 15px; /* Cambia las esquinas a un patrón alternado (arriba-izq/abajo-der: 30px, arriba-der/abajo-izq: 15px) */
+    }
+    50% { /* Aproximadamente 2.5s */
+        border-radius: 15px 30px 15px 30px; /* Invierte el patrón (arriba-izq/abajo-der: 15px, arriba-der/abajo-izq: 30px) */
+    }
+    75% { /* Aproximadamente 3.75s */
+        border-radius: 30px 15px 30px 15px; /* Vuelve al patrón del 25% */
+    }
+    100% { /* Punto final, regresa al inicio para el ciclo infinito */
+        border-radius: 20px; /* Vuelve a las esquinas uniformes de 20px */
+    }
+}
+
+.morphing-bg2 {
+    width: 100%; /* Establece el ancho al 100% del contenedor padre para adaptarse al espacio disponible */
+    max-width: 1000px; /* Limita el ancho máximo a 1000px */
+    height: 300px; /* Define una altura fija de 300px */
+    background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); /* Crea un gradiente lineal con un ángulo de 45 grados (diagonal) */
+    background-size: 400% 400%; /* Aumenta el tamaño del gradiente al 400% para permitir movimiento */
+    background-position: 0% 50%; /* Posición inicial del gradiente (izquierda-centro) */
+    border-radius: 20px; /* Esquinas redondeadas iniciales de 20px en todos los lados */
+    box-shadow: 5px 15px 20px rgba(0, 0, 0, 0.4); /* Agrega una sombra (desplazamiento x: 5px, y: 15px, difuminado: 20px, opacidad: 0.4) */
+    border: 2.5px solid #eee; /* Añade un borde sólido de 2.5px, color gris claro */
+    transition: background-position 1s ease, border-radius 0.5s ease; /* Aplica transiciones suaves: 1s para el cambio de posición del gradiente, 0.5s para el cambio de border-radius */
+}
+
+.morphing-bg2:hover {
+    background-position: 100% 50%; /* Al pasar el ratón, mueve el gradiente a la posición derecha-centro */
+    border-radius: 30px 15px 30px 15px; /* Cambia las esquinas a un patrón alternado (arriba-izq/abajo-der: 30px, arriba-der/abajo-izq: 15px) */
+}

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía del DOM</title>
+  <link rel="stylesheet" href="/css/styleMain.css">
+</head>
+<body>
+  <img src="" alt="">
+  <h1>¿Qué es el DOM?</h1>
+  <p>El <strong>DOM</strong> (Document Object Model, o Modelo de Objetos del Documento) es una representación estructurada de un documento HTML (o XML) en forma de un <strong>árbol de objetos</strong>. Es una interfaz que permite a los programas (como JavaScript) interactuar con los elementos de una página web de manera dinámica. En otras palabras, el DOM es como un puente entre tu código JavaScript y los elementos HTML de tu página, permitiéndote leer, modificar, agregar o eliminar elementos, estilos, atributos, y más.</p>
+  
+  <h2>Características clave del DOM:</h2>
+  <ul>
+    <li><strong>Estructura de árbol</strong>: Cada elemento HTML (como <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;button&gt;</code>) se convierte en un <strong>nodo</strong> en un árbol jerárquico. Los nodos pueden ser elementos, texto, atributos, etc.</li>
+    <li><strong>Dinámico</strong>: Puedes cambiar el contenido, la estructura y los estilos de la página en tiempo real.</li>
+    <li><strong>Interfaz de programación</strong>: El DOM proporciona métodos y propiedades para manipular la página, como cambiar el texto de un párrafo o agregar un nuevo botón.</li>
+  </ul>
+
+  <h2>Ejemplo visual del árbol DOM:</h2>
+  <p>Para un HTML simple como este:</p>
+  <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Mi Página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bienvenido&lt;/h1&gt;
+    &lt;p id="texto"&gt;Hola, mundo!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+  </code></pre>
+  <p>El DOM genera un árbol como este:</p>
+  <pre><code>
+Document
+  └── html
+      ├── head
+      │   └── title
+      │       └── Texto: "Mi Página"
+      └── body
+          ├── h1
+          │   └── Texto: "Bienvenido"
+          └── p (id="texto")
+              └── Texto: "Hola, mundo!"
+  </code></pre>
+  <p>Cada elemento (<code>html</code>, <code>head</code>, <code>body</code>, <code>h1</code>, <code>p</code>) es un <strong>nodo elemento</strong>, y el texto dentro de ellos es un <strong>nodo de texto</strong>.</p>
+
+  <h1>¿Cómo funciona el DOM?</h1>
+  <p>Cuando un navegador carga una página web:</p>
+  <ol>
+    <li><strong> pronosticar el HTML</strong>: El navegador lee el código HTML y lo convierte en una estructura de árbol en memoria (el DOM).</li>
+    <li><strong>Acceso desde JavaScript</strong>: JavaScript puede acceder a este árbol a través del objeto global <code>document</code>, que representa el DOM completo.</li>
+    <li><strong>Manipulación</strong>: Usando métodos y propiedades del DOM, puedes modificar elementos, sus atributos, estilos, contenido o estructura.</li>
+  </ol>
+  <p>El DOM actúa como un intermediario: JavaScript le dice qué hacer, y el navegador actualiza la página para reflejar los cambios.</p>
+
+  <h1>Guía para interactuar con el DOM</h1>
+  <p>Aquí tienes una guía práctica con los conceptos y métodos más comunes para trabajar con el DOM, junto con ejemplos que puedes probar.</p>
+
+  <h2>1. Acceder a elementos del DOM</h2>
+  <p>Para manipular elementos, primero necesitas seleccionarlos. Aquí están los métodos más usados:</p>
+  <ul>
+    <li><code>document.getElementById(id)</code>: Selecciona un elemento por su <code>id</code>.</li>
+    <li><code>document.querySelector(selector)</code>: Selecciona el primer elemento que coincida con un selector CSS (como <code>.clase</code>, <code>#id</code>, <code>div</code>).</li>
+    <li><code>document.querySelectorAll(selector)</code>: Devuelve una lista de todos los elementos que coincidan con el selector.</li>
+    <li><code>document.getElementsByClassName(class)</code>: Selecciona elementos por su clase.</li>
+    <li><code>document.getElementsByTagName(tag)</code>: Selecciona elementos por su etiqueta (como <code>p</code>, <code>div</code>).</li>
+  </ul>
+  <h3>Ejemplo:</h3>
+  <pre><code>
+&lt;p id="texto"&gt;Hola, mundo!&lt;/p&gt;
+&lt;button class="boton"&gt;Clic aquí&lt;/button&gt;
+  </code></pre>
+  <pre><code>
+// Seleccionar por ID
+const parrafo = document.getElementById("texto");
+console.log(parrafo); // &lt;p id="texto"&gt;Hola, mundo!&lt;/p&gt;
+
+// Seleccionar por clase
+const boton = document.querySelector(".boton");
+console.log(boton); // &lt;button class="boton"&gt;Clic aquí&lt;/button&gt;
+
+// Seleccionar todos los párrafos
+const parrafos = document.querySelectorAll("p");
+console.log(parrafos); // NodeList con todos los &lt;p&gt;
+  </code></pre>
+
+  <h2>2. Modificar contenido de elementos</h2>
+  <p>Puedes cambiar el contenido de un elemento usando propiedades como:</p>
+  <ul>
+    <li><code>element.textContent</code>: Cambia el texto puro de un elemento.</li>
+    <li><code>element.innerHTML</code>: Cambia el contenido HTML (puedes agregar etiquetas).</li>
+    <li><code>element.value</code>: Cambia el valor de elementos de formulario (como <code>&lt;input&gt;</code>).</li>
+  </ul>
+  <h3>Ejemplo:</h3>
+  <pre><code>
+&lt;p id="texto"&gt;Hola, mundo!&lt;/p&gt;
+  </code></pre>
+  <pre><code>
+const parrafo = document.getElementById("texto");
+parrafo.textContent = "¡Texto cambiado!"; // Cambia el texto
+parrafo.innerHTML = "&lt;strong&gt;Texto en negrita&lt;/strong&gt;"; // Cambia a HTML
+  </code></pre>
+
+  <h2>3. Modificar estilos</h2>
+  <p>Puedes cambiar los estilos CSS de un elemento accediendo a la propiedad <code>style</code>.</p>
+  <h3>Ejemplo:</h3>
+  <pre><code>
+&lt;p id="texto"&gt;Hola, mundo!&lt;/p&gt;
+  </code></pre>
+  <pre><code>
+const parrafo = document.getElementById("texto");
+parrafo.style.color = "blue";
+parrafo.style.fontSize = "20px";
+parrafo.style.backgroundColor = "lightgray";
+  </code></pre>
+  <p><strong>Nota</strong>: Los nombres de propiedades CSS con guiones (como <code>font-size</code>) se convierten a camelCase (<code>fontSize</code>) en JavaScript.</p>
+
+  <h2>4. Modificar atributos</h2>
+  <p>Puedes leer o cambiar atributos HTML con:</p>
+  <ul>
+    <li><code>element.getAttribute(nombre)</code>: Obtiene el valor de un atributo.</li>
+    <li><code>element.setAttribute(nombre, valor)</code>: Establece un atributo.</li>
+    <li><code>element.removeAttribute(nombre)</code>: Elimina un atributo.</li>
+  </ul>
+  <h3>Ejemplo:</h3>
+  <pre><code>
+&lt;img id="imagen" src="foto.jpg" alt="Una foto"&gt;
+  </code></pre>
+  <pre><code>
+const imagen = document.getElementById("imagen");
+console.log(imagen.getAttribute("src")); // "foto.jpg"
+imagen.setAttribute("src", "nueva-foto.jpg"); // Cambia la imagen
+imagen.removeAttribute("alt"); // Elimina el atributo alt
+  </code></pre>
+
+  <h2>5. Crear y agregar elementos</h2>
+  <p>Puedes crear nuevos elementos y añadirlos al DOM:</p>
+  <ul>
+    <li><code>document.createElement(tag)</code>: Crea un nuevo elemento.</li>
+    <li><code>element.appendChild(nodo)</code>: Agrega un nodo como hijo.</li>
+    <li><code>element.removeChild(nodo)</code>: Elimina un nodo hijo.</li>
+    <li><code>element.append(nodo)</code>: Agrega nodos o texto al final.</li>
+  </ul>
+  <h3>Ejemplo:</h3>
+  <pre><code>
+&lt;div id="contenedor"&gt;&lt;/div&gt;
+  </code></pre>
+  <pre><code>
+const contenedor = document.getElementById("contenedor");
+const nuevoParrafo = document.createElement("p");
+nuevoParrafo.textContent = "Soy un nuevo párrafo";
+contenedor.appendChild(nuevoParrafo); // Agrega el párrafo al div
+  </code></pre>
+
+  <h2>6. Eliminar elementos</h2>
+  <p>Puedes eliminar elementos con <code>remove()</code> o <code>removeChild()</code>.</p>
+  <h3>Ejemplo:</h3>
+  <pre><code>
+&lt;p id="texto"&gt;Hola, mundo!&lt;/p&gt;
+  </code></pre>
+  <pre><code>
+const parrafo = document.getElementById("texto");
+parrafo.remove(); // Elimina el párrafo del DOM
+  </code></pre>
+
+  <h2>7. Manejar eventos</h2>
+  <p>Los eventos (como clics, cambios en formularios, etc.) son clave para hacer que tu página sea interactiva. Usa <code>addEventListener</code> para asociar funciones a eventos.</p>
+  <h3>Ejemplo:</h3>
+  <pre><code>
+&lt;button id="boton"&gt;Clic aquí&lt;/button&gt;
+&lt;p id="texto"&gt;Hola&lt;/p&gt;
+  </code></pre>
+  <pre><code>
+const boton = document.getElementById("boton");
+const parrafo = document.getElementById("texto");
+
+boton.addEventListener("click", () => {
+  parrafo.textContent = "¡Clic detectado!";
+  parrafo.style.color = "red";
+});
+  </code></pre>
+  <p>Tipos comunes de eventos:</p>
+  <ul>
+    <li><code>click</code>: Clic en un elemento.</li>
+    <li><code>change</code>: Cambio en un input.</li>
+    <li><code>mouseover</code>: El mouse pasa sobre un elemento.</li>
+    <li><code>keydown</code>: Se presiona una tecla.</li>
+  </ul>
+
+  <h2>8. Navegar por el árbol DOM</h2>
+  <p>Puedes moverte entre nodos usando propiedades como:</p>
+  <ul>
+    <li><code>element.parentElement</code>: El elemento padre.</li>
+    <li><code>element.children</code>: Lista de elementos hijos.</li>
+    <li><code>element.nextElementSibling</code>: El siguiente elemento hermano.</li>
+    <li><code>element.previousElementSibling</code>: El elemento hermano anterior.</li>
+  </ul>
+  <h3>Ejemplo:</h3>
+  <pre><code>
+&lt;div id="contenedor"&gt;
+  &lt;p&gt;Primero&lt;/p&gt;
+  &lt;p&gt;Segundo&lt;/p&gt;
+&lt;/div&gt;
+  </code></pre>
+  <pre><code>
+const contenedor = document.getElementById("contenedor");
+console.log(contenedor.children); // Lista con los dos &lt;p&gt;
+console.log(contenedor.children[0].nextElementSibling); // Segundo &lt;p&gt;
+  </code></pre>
+
+  <h1>Ejemplo práctico completo</h1>
+  <p>Aquí tienes un ejemplo que combina varias técnicas del DOM para crear una lista dinámica:</p>
+  <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Lista Dinámica&lt;/title&gt;
+  &lt;style&gt;
+    .item { padding: 10px; background-color: lightblue; margin: 5px; }
+    .rojo { background-color: lightcoral; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Mi Lista&lt;/h1&gt;
+  &lt;input type="text" id="entrada" placeholder="Escribe un elemento"&gt;
+  &lt;button id="agregar"&gt;Agregar&lt;/button&gt;
+  &lt;button id="limpiar"&gt;Limpiar&lt;/button&gt;
+  &lt;ul id="lista"&gt;&lt;/ul&gt;
+
+  &lt;script&gt;
+    const entrada = document.getElementById("entrada");
+    const botonAgregar = document.getElementById("agregar");
+    const botonLimpiar = document.getElementById("limpiar");
+    const lista = document.getElementById("lista");
+
+    // Agregar elemento a la lista
+    botonAgregar.addEventListener("click", () => {
+      const texto = entrada.value.trim();
+      if (texto) {
+        const nuevoItem = document.createElement("li");
+        nuevoItem.textContent = texto;
+        nuevoItem.className = "item";
+        // Cambiar color al hacer clic
+        nuevoItem.addEventListener("click", () => {
+          nuevoItem.classList.toggle("rojo");
+        });
+        lista.appendChild(nuevoItem);
+        entrada.value = ""; // Limpiar input
+      }
+    });
+
+    // Limpiar la lista
+    botonLimpiar.addEventListener("click", () => {
+      lista.innerHTML = ""; // Elimina todos los hijos
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+  </code></pre>
+  <p><strong>Qué hace este ejemplo</strong>:</p>
+  <ul>
+    <li>Permite agregar elementos a una lista <code>&lt;ul&gt;</code> desde un <code>&lt;input&gt;</code>.</li>
+    <li>Cada elemento agregado tiene una clase CSS (<code>item</code>) y cambia de color al hacer clic.</li>
+    <li>El botón "Limpiar" elimina todos los elementos de la lista.</li>
+    <li>Usa métodos como <code>createElement</code>, <code>appendChild</code>, <code>classList.toggle</code>, y eventos como <code>click</code>.</li>
+  </ul>
+
+  <h1>Consejos para volverte experto en el DOM</h1>
+  <ol>
+    <li><strong>Practica con proyectos pequeños</strong>:
+      <ul>
+        <li>Crea una calculadora que actualice resultados en la página.</li>
+        <li>Haz un formulario que valide datos en tiempo real.</li>
+        <li>Construye una lista de tareas (to-do list) con funciones para agregar, eliminar y marcar tareas.</li>
+      </ul>
+    </li>
+    <li><strong>Entiende los selectores CSS</strong>:
+      <ul>
+        <li>Aprende a usar <code>querySelector</code> y <code>querySelectorAll</code> con selectores como <code>.clase</code>, <code>#id</code>, <code>[data-atributo]</code>, etc. Esto te dará flexibilidad para seleccionar elementos.</li>
+      </ul>
+    </li>
+    <li><strong>Domina los eventos</strong>:
+      <ul>
+        <li>Experimenta con eventos como <code>input</code>, <code>submit</code>, <code>mouseover</code>, <code>keydown</code>. Usa <code>addEventListener</code> en lugar de atributos como <code>onclick</code> para mantener el código limpio.</li>
+      </ul>
+    </li>
+    <li><strong>Usa herramientas de desarrollo</strong>:
+      <ul>
+        <li>Abre las <strong>DevTools</strong> del navegador (F12) y usa la pestaña "Elements" para inspeccionar el DOM. También usa la consola para probar comandos como <code>document.querySelector</code>.</li>
+      </ul>
+    </li>
+    <li><strong>Evita errores comunes</strong>:
+      <ul>
+        <li>No uses <code>innerHTML</code> para todo, ya que puede ser inseguro (vulnerable a inyecciones de código) y lento. Prefiere <code>textContent</code> para texto puro.</li>
+        <li>Asegúrate de que los elementos existan antes de manipularlos (p.ej., verifica si <code>document.getElementById</code> devuelve <code>null</code>).</li>
+      </ul>
+    </li>
+    <li><strong>Explora bibliotecas modernas</strong>:
+      <ul>
+        <li>Una vez domines el DOM puro, prueba frameworks como React o Vue.js, que abstraen el manejo del DOM pero se basan en los mismos conceptos.</li>
+      </ul>
+    </li>
+    <li><strong>Recursos para aprender más</strong>:
+      <ul>
+        <li><strong>MDN Web Docs</strong>: La referencia definitiva para el DOM (busca "DOM" o "JavaScript" en developer.mozilla.org).</li>
+        <li><strong>FreeCodeCamp</strong>: Tutoriales prácticos de JavaScript y DOM.</li>
+        <li><strong>JavaScript.info</strong>: Explicaciones detalladas sobre el DOM y eventos.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h1>Ejercicios para practicar</h1>
+  <ol>
+    <li><strong>Cambiar colores</strong>: Crea un botón que cambie el color de fondo de la página al hacer clic.</li>
+    <li><strong>Contador</strong>: Haz un contador que incremente o decremente un número mostrado en un <code>&lt;p&gt;</code> con dos botones (+ y -).</li>
+    <li><strong>Galería de imágenes</strong>: Crea una galería donde al hacer clic en una miniatura, cambie la imagen principal.</li>
+    <li><strong>Validación de formulario</strong>: Valida un formulario en tiempo real (p.ej., verifica que un campo de correo tenga un formato válido).</li>
+  </ol>
+
+  <h1>Resumen</h1>
+  <p>El DOM es la representación de tu página web como un árbol de nodos que puedes manipular con JavaScript. Usando métodos como <code>getElementById</code>, <code>querySelector</code>, <code>createElement</code>, y <code>addEventListener</code>, puedes hacer que tu página sea interactiva. Practica con ejemplos pequeños, inspecciona el DOM en las DevTools, y construye proyectos para ganar experiencia. Con el tiempo, dominarás el DOM y estarás más cerca de ser un experto en desarrollo web. ¡Sigue adelante y experimenta con el código!</p>
+</body>
+</html>

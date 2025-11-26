@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HomeLuisDev</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="nombre">Luis Villada Dev</h1>
+        <nav id="navHeader">
+
+            <ul>
+                <li>Background</li>
+                <li>Skills</li>
+                <li>Projects</li>
+                <li>Studies</li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container-card">
+        <img src="/assets/Lv.jpeg" alt="Luis Villada Image">
+        <div id="info-card">
+            <h2>Luis Alonso Villada Vega</h2>
+            <p>I'm a Full Stack Java Developer with experience building secure, high-performance web applications. I
+                work with Spring Boot for the backend, MySQL as the database, and create clean, responsive, and
+                user-friendly interfaces using HTML, CSS, JavaScript, and Bootstrap. I'm also comfortable integrating
+                and consuming APIs smoothly.
+                I love being autonomous and I'm always learning new tools and technologies on my own. People usually
+                highlight my initiative, commitment, and strong communication skills — I adapt quickly, enjoy
+                collaborating with teams, and always look for ways to add real value to projects and the people around
+                me.</p>
+        </div>
+    </section>
+
+    <section id="sections-studies">
+        <div class="container-studies" id="container-studies1">
+            <div id="title-generation">
+                <h3>Generation, Bogota, Colombia</h3>
+                <h3>October 2025 - Currently</h3>
+            </div>
+            <p>Full Stack Java Developer</p>
+        </div>
+        <div class="container-studies" id="container-studies2">
+            <div id="title-oracle">
+                <h3>Oracle - Alura Latam, Bogota, Colombia</h3>
+                <h3>Junio 2023</h3>
+            </div>
+            <p>BackEnd Java Developer</p>
+        </div>
+    </section>
+
+    <section id="section-skills">
+        <div>
+            <h2>Skills</h2>
+        </div>
+        <div class="container-skills">
+            <div class="card-skills">
+                <img src="/assets/java_icon.png" alt="Icono Java" class="icons-skills">
+            </div>
+            <div class="card-skills">
+                <img src="/assets/spring-boot-icon.png" alt="Icono Spring Boot" class="icons-skills">
+            </div>
+            <div class="card-skills">
+                <img src="/assets/mysql-logo-480.png" alt="Icono MySQL" class="icons-skills">
+            </div>
+            <div class="card-skills">
+                <img src="/assets/html-5-icon.png" alt="Icono HTML" class="icons-skills">
+            </div>
+            <div class="card-skills">
+                <img src="/assets/icons-js-480.png" alt="Icono JS" class="icons-skills">
+            </div>
+            <div class="card-skills">
+                <img src="/assets/icons8-css-480.png" alt="Icono CSS" class="icons-skills">
+            </div>
+
+            <div class="card-skills">
+                <img src="/assets/icons-python-480.png" alt="Icono Python" class="icons-skills">
+            </div>
+            <div class="card-skills">
+                <img src="/assets/bootstrap-480.png" alt="Icono bootstrap" class="icons-skills">
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="div1">
+        <h2 id="listTitle">To Do List</h2>
+        <ul id="toDoList">
+
+        </ul>
+        <input type="textTask" id="textTaskId" placeholder="Enter a Task">
+
+        <button class="button" id="addTask" onclick="addTask()"> Add Task </button>
+        <button class="button" id="deleteTask">Delete Task</button>
+    </div>
+    <script src="js/scriptHome.js"></script>
+</body>
+
+</html>
