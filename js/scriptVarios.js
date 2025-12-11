@@ -13,5 +13,4 @@ function cafe(){
     document.getElementById("cafe").style.color = "#4e3a1fff";
     alert("Alerta que si las papas son cafes..")
     console.log("Respuesta del alert en un un log: Si son cafes!");
-    
 }
