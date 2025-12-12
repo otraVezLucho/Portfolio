@@ -10,7 +10,6 @@ export function addTask(inputText){
      const elementLi = document.createElement("li");
      const checkbox = document.createElement("input");
      const contentLabel = document.createElement("label");
-
      contentLabel.textContent = inputText;
      elementLi.classList.add("liListElement");
      //Agrego un ID unico al checkbox
@@ -33,14 +32,17 @@ export function deleteTask(){
 
     const checkSelector = document.querySelectorAll("input[type='checkbox']:checked");
     //Esto devuelve un NodeList
-
-
-    for(let i = 0; i < checkSelector.length;i++){
-        console.log(checkSelector[i].id);
-        //Necesito solucionar esto, error:(toDoscript.js:39 Uncaught TypeError: Cannot read properties of undefined (reading 'paretNode'))
-          const elementDelete = checkSelector[i];
-          //elementDelete.target.paretNode;
+    if(checkSelector.length === 0){
+        alert("No items selected");
+    }else{
+        for(let i = 0; i < checkSelector.length;i++){
+        console.log("Element id deleted: "+checkSelector[i].id);
+        checkSelector[i].closest('li').remove();
+        
+        }
     }
+
+    
     
     
 }
