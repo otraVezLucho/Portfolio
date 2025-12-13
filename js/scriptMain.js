@@ -2,7 +2,7 @@ import {addTask,deleteTask} from "../js/toDoscript.js";
 
 
 document.addEventListener('DOMContentLoaded', ()=> {
-alert("✨ This experience is under wizard creation ✨\n\nFor the best magic, please open this on a desktop or laptop!")
+alert("✨ This experience is under wizard creation ✨\n\nFor the best magic, Please Rotate your phone ↻\nor open this on a desktop or laptop!")
 });
 
 
