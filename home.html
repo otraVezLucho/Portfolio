@@ -21,7 +21,6 @@
             </ul>
         </nav>
     </header>
-
     <section class="container-card">
         <img src="/assets/Lv.jpeg" alt="Luis Villada Image">
         <div id="info-card">
@@ -36,7 +35,6 @@
                 me.</p>
         </div>
     </section>
-
     <section id="sections-studies">
         <div class="container-studies" id="container-studies1">
             <div id="title-generation">
@@ -53,7 +51,6 @@
             <p>BackEnd Java Developer</p>
         </div>
     </section>
-
     <section id="section-skills">
         <div>
             <h2>Skills</h2>
@@ -93,20 +90,19 @@
             <p>¡Hit a button and watch the magic happen!</p>
         </div>
 
-        <div>
-            <button class="projectButton">Task List</button>
-            <button class="projectButton">Poke API</button>
-            <button class="projectButton">Nasa API</button>
-            <button class="projectButton">Store Catalog</button>
-            <button class="projectButton">Nav Bars</button>
-            <button class="projectButton">Cards</button>
-            <button class="projectButton">Shopping Carts</button> 
+        <div id="projectButtonsContainer">
+            <button class="projectButton" id="tasklist">Task List</button>
+            <button class="projectButton" id="pokeApi">Poke API</button>
+            <button class="projectButton" id="nasaApi">Nasa API</button>
+            <button class="projectButton" id="storeCatalog">Store Catalog</button>
+            <button class="projectButton" id="navbars">Nav Bars</button>
+            <button class="projectButton" id="cards">Cards</button>
+            <button class="projectButton" id="shoppingCarts">Shopping Carts</button> 
         </div>
     </section>
-
-    <section id="proyectsView">
+    <section id="showTaskListSection" class="projectsSectionNoActive">
         <div class="toDoContainer">
-            <h2 id="listTitle">To Do List</h2>
+            <h2 id="listTitle">Task List</h2>
             <ul id="toDoList">
 
             </ul>
@@ -116,7 +112,24 @@
             <button class="button" id="deleteTask">Delete Task</button>
         </div>
     </section>
-
+    <section id="showPokeApiSection" class="projectsSectionNoActive">
+      
+    </section>
+    <section id="showNasaApiSection" class="projectsSectionNoActive">
+      
+    </section>
+    <section id="showStoreCatalogSection" class="projectsSectionNoActive">
+      
+    </section>
+    <section id="showNavBarsSection" class="projectsSectionNoActive">
+      
+    </section>
+    <section id="showNavBarsCardsSection" class="projectsSectionNoActive">
+      
+    </section>
+    <section id="showNavShoppingCartsSection" class="projectsSectionNoActive">
+      
+    </section>
 
     <script type="module" src="/js/scriptMain.js"></script>
 </body>

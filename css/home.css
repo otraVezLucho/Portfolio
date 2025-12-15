@@ -177,6 +177,7 @@ padding-top: 0;
     font-size: 40px;
     margin-top: 10px;
     margin-bottom: 10px;
+    text-align: center;
     
 }
 
@@ -232,6 +233,13 @@ padding-top: 0;
  font-size: 20px;
  text-align: center;
 }
+#projectButtonsContainer{
+    display: flex;
+    flex-flow: row wrap;
+    width: auto;
+
+    justify-content: center;
+}
 .projectButton{
     margin: 10px;
     width: 120px;
@@ -244,20 +252,40 @@ padding-top: 0;
     border: transparent;
 }
 .projectButton:hover{
+    
     box-shadow: inset 0 0 20px rgba(51, 255, 0, 0.7),
     0 0 20px rgba(51, 255, 0, 0.7);
     border-radius: 40px;
     cursor: pointer;
 }
+
+.projectsSectionNoActive{
+    display: none;
+}
+
+.projectsSectionActive{
+    margin: 30px auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    min-width: 320px;
+    height: auto;
+    padding: 10px;
+    min-height: 100px;
+    box-shadow: inset 0 0 20px rgba(51, 255, 0, 0.281);
+}
+.noActiveProject{
+    display: none;
+}
 .toDoContainer {
-    margin: 0 auto;
+    margin: 20px;
     max-width: 400px;
     min-width: 320px;
-    height: 400px;
+    height: 400px; 
     background: linear-gradient(45deg, #1a1a1a, #002c02);
     border: 2px solid #4dc453;
     border-radius: 10px;
-    margin-top: 200px;
 }
 
 .toDoContainer:hover {
@@ -266,13 +294,12 @@ padding-top: 0;
     background-color: #1a1a1a;
     border: 4px double #87ee00;
     border-radius: 10px;
-    margin-top: 200px;
+    
 }
 
 .toDoContainer #listTitle {
     text-align: center;
     color: aliceblue;
-
 }
 
 #textTaskId {

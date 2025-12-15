@@ -1,3 +1,20 @@
+
+
+export function showSection(e){
+    
+    const buttonId = e.target.id;
+    //Si el id del boton equivale a tasklist entonces active el container para que sea visible
+    if(buttonId === "tasklist"){
+        const showSectionProjects = document.getElementById("showTaskListSection");
+        showSectionProjects.classList.toggle("projectsSectionActive");
+        showSectionProjects.classList.toggle("projectsSectionNoActive");
+    }
+    //toDoContainer
+
+}
+
+
+//From here this code works to Task List
 let contador = 1;
 
 export function addTask(inputText){
@@ -26,7 +43,7 @@ export function addTask(inputText){
      
     }
     
-}
+}   
 
 export function deleteTask(){
 
