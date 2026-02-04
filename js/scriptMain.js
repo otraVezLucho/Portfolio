@@ -1,5 +1,5 @@
-import {addTask,deleteTask,showSection} from "../js/toDoscript.js";
-
+import { addTask, deleteTask, showSection } from "../js/toDoscript.js";
+import { getPokemonList, searchPokemon } from '../js/pokeApi.js';
 /*
 document.addEventListener('DOMContentLoaded', ()=> {
 alert("✨ This experience is under wizard creation ✨\n\nFor the best magic, Please Rotate your phone ↻\nor open this on a desktop or laptop!")
@@ -36,4 +36,18 @@ buttonTask.addEventListener('click',()=>{
 
 buttonDelete.addEventListener('click',deleteTask);
 
+//Get a pokemon list code
 
+const getPokemonListButton = document.querySelector('.getListButton');
+
+/*
+getPokemonListButton.addEventListener('click', function(){
+    
+    
+    console.log("It works!");
+    getPokemonList();
+    
+});*/
+
+
+getPokemonListButton.addEventListener('click', getPokemonList);

@@ -100,11 +100,11 @@ body {
     width: 25%;
     min-height: 264px;
     min-width: 193px;
-    border-radius: 20px 0 0 ;
+    border-radius: 20px 0 0;
 }
 
 .container-card img:hover {
-    
+
     width: 25%;
 }
 
@@ -132,36 +132,43 @@ body {
 
 }
 
-.container-studies{
+.container-studies {
     padding: 4%;
 }
-.container-studies p{
-margin-top: 5px;
+
+.container-studies p {
+    margin-top: 5px;
 }
-#container-studies1{
+
+#container-studies1 {
     padding-bottom: 0;
 }
-#container-studies2{
-padding-top: 0;
+
+#container-studies2 {
+    padding-top: 0;
 }
-#title-generation{
+
+#title-generation {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
 }
-#title-generation h3{
+
+#title-generation h3 {
     margin: 0;
 }
 
-#title-oracle{
-    
+#title-oracle {
+
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
 }
-#title-oracle h3{
+
+#title-oracle h3 {
     margin: 0;
 }
+
 #section-skills {
     display: flex;
     flex-flow: column;
@@ -174,12 +181,13 @@ padding-top: 0;
     margin-top: 0;
     margin-bottom: 10%;
 }
+
 #sectionProyectSelector h2 {
     font-size: 40px;
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
-    
+
 }
 
 .container-skills {
@@ -202,7 +210,8 @@ padding-top: 0;
     min-width: 60px;
     box-shadow: inset 0 0 30px rgba(51, 255, 0, 0.3);
     border-radius: 20px;
-    overflow: hidden; /*Oculta todo lo que se sale del contenedor*/
+    overflow: hidden;
+    /*Oculta todo lo que se sale del contenedor*/
     padding: 5px;
     margin-bottom: 5px;
 }
@@ -221,7 +230,7 @@ padding-top: 0;
 
 
 /*from here project section style beware*/
-#sectionProyectSelector{
+#sectionProyectSelector {
     margin: 30px auto;
     width: 80%;
     min-width: 320px;
@@ -232,41 +241,45 @@ padding-top: 0;
     align-items: center;
     padding: 10px;
 }
-#projectText p{
- font-size: 20px;
- text-align: center;
+
+#projectText p {
+    font-size: 20px;
+    text-align: center;
 }
-#projectButtonsContainer{
+
+#projectButtonsContainer {
     display: flex;
     flex-flow: row wrap;
     width: auto;
 
     justify-content: center;
 }
-.projectButton{
+
+.projectButton {
     margin: 10px;
     width: 120px;
     height: 40px;
     background-color: transparent;
-    color:  whitesmoke;
+    color: whitesmoke;
     font-weight: bold;
     border-radius: 10px;
     box-shadow: inset 0 0 20px rgba(51, 255, 0, 0.281);
     border: transparent;
 }
-.projectButton:hover{
-    
+
+.projectButton:hover {
+
     box-shadow: inset 0 0 20px rgba(51, 255, 0, 0.7),
-    0 0 20px rgba(51, 255, 0, 0.7);
+        0 0 20px rgba(51, 255, 0, 0.7);
     border-radius: 40px;
     cursor: pointer;
 }
 
-.projectsSectionNoActive{
+.projectsSectionNoActive {
     display: none;
 }
 
-.projectsSectionActive{
+.projectsSectionActive {
     margin: 30px auto;
     border-radius: 20px;
     display: flex;
@@ -278,7 +291,8 @@ padding-top: 0;
     min-height: 100px;
     box-shadow: inset 0 0 20px rgba(51, 255, 0, 0.281);
 }
-.noActiveProject{
+
+.noActiveProject {
     display: none;
 }
 
@@ -287,7 +301,7 @@ padding-top: 0;
     margin: 20px;
     max-width: 400px;
     min-width: 320px;
-    height: 400px; 
+    height: 400px;
     background: linear-gradient(45deg, #1a1a1a, #002c02);
     border: 2px solid #4dc453;
     border-radius: 10px;
@@ -299,7 +313,7 @@ padding-top: 0;
     background-color: #1a1a1a;
     border: 4px double #87ee00;
     border-radius: 10px;
-    
+
 }
 
 .toDoContainer #listTitle {
@@ -353,16 +367,19 @@ padding-top: 0;
 .toDoContainer #deleteTask {
     margin-left: 10px;
 }
-.liListElement{
+
+.liListElement {
     width: 80%;
-    border:2px solid #002c02;
+    border: 2px solid #002c02;
     margin-bottom: 2px;
-    
+
 }
-.textLabel{
+
+.textLabel {
     cursor: pointer;
 }
-.checkInput{
+
+.checkInput {
     margin-right: 10px;
     cursor: pointer;
 }
@@ -370,39 +387,46 @@ padding-top: 0;
 
 /*poke API style*/
 
-.containerPokeAPI{
+.containerPokeAPI {
     display: flex;
-    flex-flow: row;
+    flex-flow: wrap;
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: 500px;
+    height: auto;
+    min-height: 400px;
     background: linear-gradient(30deg, rgb(190, 237, 255), rgb(173, 228, 250));
     border-radius: 15px;
-    
+
     padding: 5px;
 }
-.searchSection, .favoritesSection{
+
+.searchSection,
+.favoritesSection {
     width: 49%;
+    min-width: 310px;
     height: 98%;
     border: 2px solid white;
     border-radius: 15px;
     display: flex;
     flex-flow: column;
-    
+    padding-bottom: 15px;
+
 }
+
 .searchRaw {
     display: flex;
     flex-flow: row;
     justify-content: center;
-    
+
     margin: 0 auto;
     margin-top: 20px;
     width: 90%;
     height: auto;
-    
+
 }
-.searchInput{
+
+.searchInput {
     width: 50%;
     height: 35px;
     border: none;
@@ -415,31 +439,126 @@ padding-top: 0;
     padding-left: 10px;
     padding-right: 10px;
 }
-.searchInput:focus{
+
+.searchInput:focus {
     outline: none;
     background-color: white;
 }
+
 .searchInput:focus::placeholder {
     opacity: 0;
 }
 
-.searchPokemonButton{
+.searchPokemonButton {
     border-radius: 50%;
     border: none;
     width: 35px;
-    height: 35px;   
+    height: 35px;
     cursor: pointer;
     background-color: rgb(255, 107, 107);
-       
-}
-.searchPokemonButton:hover {
-    background-color: #919191;
+
 }
 
-.searchPokemonButton i{
+.searchPokemonButton:hover {
+    background-color: #919191;
+    color: white;
+}
+
+.searchPokemonButton i {
     font-size: 20px;
     margin: 0;
     padding: 2px;
-    
+
 }
 
+.listContainer {
+    display: flex;
+    flex-flow: wrap;
+    height: 40px;
+    width: 90%;
+    
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 5px;
+    align-items: center;
+}
+
+.listContent {
+    display: flex;
+    flex-flow: wrap;
+    height: 200px;
+    overflow-y: auto;
+    width: 90%;
+    
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 5px;
+    justify-content: center;
+}
+/*Scroll bar style*/
+.listContent::-webkit-scrollbar{
+    width: 8px;
+}
+.listContent::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.listContent::-webkit-scrollbar-thumb{
+    background:rgb(255, 107, 107);
+    border-radius: 10px;
+}
+
+.getListButton {
+    height: 35px;
+    border-radius: 25px;
+    border: transparent;
+    margin: 0 auto;
+    cursor: pointer;
+    background-color: rgb(255, 107, 107);
+    color: black;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.getListButton:hover {
+    background-color: #919191;
+    color: white;
+}
+
+.getListButton:focus {
+    background-color: white;
+    color: rgb(255, 107, 107);
+}
+
+/*POke cards style*/
+
+.pokeCard {
+    
+    width: 110px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 2px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 60px rgba(71, 203, 255, 0.603);
+    
+
+}
+.pokeCard:hover {
+    transform: scale(1.05);
+    box-shadow: inset 0 0 60px rgba(255, 107, 107, 0.363), 3px 3px 10px rgba(0, 0, 0, 0.199);
+}
+.pokeCard:hover, .titleCard:hover {
+    color: black
+}
+.titleCard{
+    font-weight: bold;
+    margin: 0;
+}
+
+
+#imgCard {
+    height: fit-content;
+    margin: 0;
+}
