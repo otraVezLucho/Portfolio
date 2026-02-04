@@ -394,24 +394,27 @@ body {
     align-items: center;
     width: 100%;
     height: auto;
-    min-height: 400px;
+    
     background: linear-gradient(30deg, rgb(190, 237, 255), rgb(173, 228, 250));
     border-radius: 15px;
 
     padding: 5px;
 }
 
+.favoritesSectionNone{
+    display: none;
+}
 .searchSection,
 .favoritesSection {
     width: 49%;
-    min-width: 310px;
-    height: 98%;
+    
+    height: auto;
     border: 2px solid white;
     border-radius: 15px;
     display: flex;
     flex-flow: column;
     padding-bottom: 15px;
-
+    
 }
 
 .searchRaw {
@@ -473,7 +476,7 @@ body {
 
 .listContainer {
     display: flex;
-    flex-flow: wrap;
+    
     height: 40px;
     width: 90%;
     
@@ -486,13 +489,13 @@ body {
 .listContent {
     display: flex;
     flex-flow: wrap;
-    height: 200px;
+    height: auto;
+    max-height: 200px;
     overflow-y: auto;
     width: 90%;
-    
     margin: 0 auto;
-    margin-top: 10px;
-    padding: 5px;
+    margin-top: 5px;
+    
     justify-content: center;
 }
 /*Scroll bar style*/
@@ -508,7 +511,7 @@ body {
     border-radius: 10px;
 }
 
-.getListButton {
+.getListButton, .clearButton {
     height: 35px;
     border-radius: 25px;
     border: transparent;
@@ -521,7 +524,7 @@ body {
     padding-right: 15px;
 }
 
-.getListButton:hover {
+.getListButton:hover, .clearButton:hover {
     background-color: #919191;
     color: white;
 }

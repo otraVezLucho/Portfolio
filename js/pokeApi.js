@@ -1,45 +1,57 @@
-const pokemonList = [];
+let pokemonList = [];
 let counter = 0;
 let counter2 = 0;
-let iteradorBucles = 0;export async function getPokemonList() {
+let iteradorBucles = 0;
+
+
+//url goes out the function to avoid a reset
+let nextUrl = 'https://pokeapi.co/api/v2/pokemon?limit=40';
+
+export async function getPokemonList() {
+    const getListContainer = document.querySelector('.listContainer');
+    let getListContent = document.querySelector('.listContent');
+    const getListButton = document.querySelector('.getListButton');
+    getListButton.textContent = "Get More";
+    const clearButton = document.createElement('button');
+    clearButton.classList.add('clearButton');
+    clearButton.type= "button";
+    clearButton.textContent = "Clear All";
+
+    //Clear container button code
+    clearButton.addEventListener('click', ()=>{
+        if (getListContent) {
+            getListContent.innerHTML= '';
+            pokemonList = [];
+            getListContainer.removeChild(clearButton);
+            counter = 0;
+            counter2 =0;
+            //Tengo que reiniciar la URL 
+            nextUrl ='https://pokeapi.co/api/v2/pokemon?limit=40';
+            getListButton.textContent = "Pokemon List";
+        }
+    });
+
+    
     counter++;
+    if (counter === 1) getListContainer.append(clearButton);
+        
+   
     console.log(counter);
 
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=40');
-    
+    if (!nextUrl) return; // si no hay mas paginas, no hace nada y sale
 
-    if ( response === 404){
-        alert("Unable to fetch the pokemon list")
-    }else if(counter === 1){
-        //console.log(response);
-        console.log();
-        console.log();
-        const data = await response.json();
-        for(let i = 0; i < data.results.length; i++){
-            counter2 = i+1;
-            pokemonList.push(data.results[i].name);
-            console.log(pokemonList[i]);
-            
-            createCard(pokemonList[i], await searchPokemon(data.results[i].name))
-            //console.log(searchPokemon(data.results[i].name));
-            
-        }
-        
-    }else if(counter>1){
-        const data = await response.json();
-        const nextUrl = data.next;
-        const nextResponse = await fetch(nextUrl);
-        const nextData = await nextResponse.json();
+    const response = await fetch(nextUrl);
+    const data = await response.json();
+    nextUrl = data.next; //Aca guardo la siguiente pagina para el proximo click
 
-        console.log(nextData.results);
-        for (let i = 30; i < nextData.results.length; i++) {
-            counter2 = i + 1;
-            pokemonList.push(nextData.results[i].name);
-            console.log(pokemonList[i]);
+    for (let i = 0; i < data.results.length; i++) {
+        const currentName = data.results[i].name;
 
-            createCard(pokemonList[i], await searchPokemon(nextData.results[i].name))
-        }
+        counter2++;
+        pokemonList.push(currentName);
+        createCard(currentName, await searchPokemon(currentName));
     }
+    
 }
 export async  function  searchPokemon(name) {
 const response = await fetch (`https://pokeapi.co/api/v2/pokemon/${name}`);
