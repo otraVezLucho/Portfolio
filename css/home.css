@@ -394,27 +394,53 @@ body {
     align-items: center;
     width: 100%;
     height: auto;
-    
+
     background: linear-gradient(30deg, rgb(190, 237, 255), rgb(173, 228, 250));
     border-radius: 15px;
 
     padding: 5px;
 }
 
-.favoritesSectionNone{
+.favoritesSectionNone {
     display: none;
 }
-.searchSection,
-.favoritesSection {
+
+.searchSection{
+    box-sizing: border-box;
     width: 49%;
-    
     height: auto;
     border: 2px solid white;
     border-radius: 15px;
     display: flex;
     flex-flow: column;
     padding-bottom: 15px;
+
+}
+.favoritesSection {
+    box-sizing: border-box;
+    width: 49%;
+    height: 341px;
+    overflow-y: auto;
+    border: 2px solid white;
+    border-radius: 15px;
+    display: flex;
+    flex-flow: wrap;
+    padding-bottom: 15px;
+    min-width: 310px;
+    justify-content: center;
+}
+.favoritesSection::-webkit-scrollbar {
     
+    width: 8px;
+}
+.favoritesSection::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.favoritesSection::-webkit-scrollbar-thumb {
+    background: rgb(255, 107, 107);
+    border-radius: 10px;
 }
 
 .searchRaw {
@@ -452,17 +478,27 @@ body {
     opacity: 0;
 }
 
-.searchPokemonButton {
+.searchPokemonButton,
+.clearAllButton {
     border-radius: 50%;
     border: none;
     width: 35px;
     height: 35px;
     cursor: pointer;
     background-color: rgb(255, 107, 107);
+    margin-right: 5px;
 
 }
 
-.searchPokemonButton:hover {
+.clearAllButton {
+    width: auto;
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.searchPokemonButton:hover,
+.clearAllButton:hover {
     background-color: #919191;
     color: white;
 }
@@ -474,17 +510,29 @@ body {
 
 }
 
+.clearAllButton i {
+    font-size: 13.3px;
+    font-weight: bold;
+    font-style: normal;
+}
+
+
 .listContainer {
     display: flex;
-    
+
     height: 40px;
     width: 90%;
-    
+
     margin: 0 auto;
     margin-top: 10px;
     padding: 5px;
     align-items: center;
 }
+
+.unitSearchContentNone {
+    display: none;
+}
+
 
 .listContent {
     display: flex;
@@ -495,23 +543,39 @@ body {
     width: 90%;
     margin: 0 auto;
     margin-top: 5px;
-    
     justify-content: center;
 }
+
+.unitSearchContent {
+    display: flex;
+    flex-flow: wrap;
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5px;
+    justify-content: center;
+    padding: 10px;
+}
+
 /*Scroll bar style*/
-.listContent::-webkit-scrollbar{
+.listContent::-webkit-scrollbar {
     width: 8px;
 }
+
 .listContent::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
-.listContent::-webkit-scrollbar-thumb{
-    background:rgb(255, 107, 107);
+
+.listContent::-webkit-scrollbar-thumb {
+    background: rgb(255, 107, 107);
     border-radius: 10px;
 }
 
-.getListButton, .clearButton {
+.getListButton,
+.clearButton {
     height: 35px;
     border-radius: 25px;
     border: transparent;
@@ -524,7 +588,8 @@ body {
     padding-right: 15px;
 }
 
-.getListButton:hover, .clearButton:hover {
+.getListButton:hover,
+.clearButton:hover {
     background-color: #919191;
     color: white;
 }
@@ -537,25 +602,30 @@ body {
 /*POke cards style*/
 
 .pokeCard {
-    
+
     width: 110px;
     display: flex;
+    height: 140px;
     flex-flow: column;
     align-items: center;
     margin: 2px;
     border-radius: 15px;
     box-shadow: inset 0 0 60px rgba(71, 203, 255, 0.603);
-    
+
 
 }
+
 .pokeCard:hover {
     transform: scale(1.05);
     box-shadow: inset 0 0 60px rgba(255, 107, 107, 0.363), 3px 3px 10px rgba(0, 0, 0, 0.199);
 }
-.pokeCard:hover, .titleCard:hover {
+
+.pokeCard:hover,
+.titleCard:hover {
     color: black
 }
-.titleCard{
+
+.titleCard {
     font-weight: bold;
     margin: 0;
 }
@@ -564,4 +634,28 @@ body {
 #imgCard {
     height: fit-content;
     margin: 0;
+}
+
+.cardButtonSection {
+
+    width: 80%;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#favoriteButton {
+    color: yellow;
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+#deleteButton {
+    color: red;
+    cursor: pointer;
+}
+
+
+#favoriteButton:hover,
+#deleteButton:hover {
+    transform: scale(1.6);
 }

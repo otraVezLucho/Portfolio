@@ -1,5 +1,5 @@
 import { addTask, deleteTask, showSection } from "../js/toDoscript.js";
-import { getPokemonList, searchPokemon } from '../js/pokeApi.js';
+import { getPokemonList, searchUnitPokemon, cleanSections, addToFavorite } from '../js/pokeApi.js';
 /*
 document.addEventListener('DOMContentLoaded', ()=> {
 alert("✨ This experience is under wizard creation ✨\n\nFor the best magic, Please Rotate your phone ↻\nor open this on a desktop or laptop!")
@@ -51,3 +51,28 @@ getPokemonListButton.addEventListener('click', function(){
 
 
 getPokemonListButton.addEventListener('click', getPokemonList);
+
+
+const searchButtonPokemon = document.querySelector('.searchPokemonButton');
+
+const getInputPokemon = document.querySelector('.searchInput');
+
+
+searchButtonPokemon.addEventListener('click', ()=> {
+    //console.log(getInputPokemon.value);
+    let inputValue = getInputPokemon.value.toLowerCase().trim()
+
+    if (!inputValue){
+        alert("Pokemon name not given")
+    }else{
+        searchUnitPokemon(inputValue);
+
+        getInputPokemon.value ="";
+    }
+});
+
+const reloadAll = document.querySelector('.clearAllButton');
+
+reloadAll.addEventListener('click',cleanSections);
+
+

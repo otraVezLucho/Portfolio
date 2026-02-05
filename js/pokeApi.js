@@ -1,41 +1,22 @@
 let pokemonList = [];
 let counter = 0;
 let counter2 = 0;
-let iteradorBucles = 0;
+
 
 
 //url goes out the function to avoid a reset
 let nextUrl = 'https://pokeapi.co/api/v2/pokemon?limit=40';
+let getListContent = document.querySelector('.listContent');
+const getListContainer = document.querySelector('.listContainer');
+
+const getListButton = document.querySelector('.getListButton');
 
 export async function getPokemonList() {
-    const getListContainer = document.querySelector('.listContainer');
-    let getListContent = document.querySelector('.listContent');
-    const getListButton = document.querySelector('.getListButton');
-    getListButton.textContent = "Get More";
-    const clearButton = document.createElement('button');
-    clearButton.classList.add('clearButton');
-    clearButton.type= "button";
-    clearButton.textContent = "Clear All";
-
-    //Clear container button code
-    clearButton.addEventListener('click', ()=>{
-        if (getListContent) {
-            getListContent.innerHTML= '';
-            pokemonList = [];
-            getListContainer.removeChild(clearButton);
-            counter = 0;
-            counter2 =0;
-            //Tengo que reiniciar la URL 
-            nextUrl ='https://pokeapi.co/api/v2/pokemon?limit=40';
-            getListButton.textContent = "Pokemon List";
-        }
-    });
-
     
+    getListButton.textContent = "Get More";
+
     counter++;
-    if (counter === 1) getListContainer.append(clearButton);
-        
-   
+    
     console.log(counter);
 
     if (!nextUrl) return; // si no hay mas paginas, no hace nada y sale
@@ -49,23 +30,29 @@ export async function getPokemonList() {
 
         counter2++;
         pokemonList.push(currentName);
-        createCard(currentName, await searchPokemon(currentName));
+        ;
+        //add to the container 
+        const containerList = document.querySelector('.listContent');
+        containerList.append(createCard(currentName, await searchPokemon(currentName)));
     }
     
 }
+
 export async  function  searchPokemon(name) {
 const response = await fetch (`https://pokeapi.co/api/v2/pokemon/${name}`);
-
-    if(response === 404){
+    let pokemonName = 'None';
+    if(!response.ok){
         alert("Unable to fetch the pokemon")
+        return;
     }else{
         const data = await response.json();
-        return data.sprites.front_default; 
+        return data.sprites?.front_default;
     }
+    
     
 }
 
-function createCard(name, img){
+export function createCard(name, img){
 
     
     //Card 
@@ -83,10 +70,110 @@ function createCard(name, img){
     pokeImg.id = "imgCard";
     pokeImg.src = img;
 
-    //Adding title and img to the card
-    pokeCard.append(titleCard, pokeImg);
+    
+    //container
+    const containerButtonsCard = document.createElement('div');
+    containerButtonsCard.classList.add('cardButtonSection');
 
-    //add to the container 
-    const containerList = document.querySelector('.listContent');
-    containerList.append(pokeCard);
+    //card buttons
+    const favoriteButton = document.createElement('i');
+    favoriteButton.classList.add('bx');
+    favoriteButton.classList.add('bxs-star');
+    favoriteButton.id = 'favoriteButton';
+    favoriteButton.addEventListener('click', addToFavorite);
+
+    
+    
+
+    const deleteButton = document.createElement('i');
+    deleteButton.classList.add('bx');
+    deleteButton.classList.add('bxs-trash-alt');
+    deleteButton.id = 'deleteButton';
+
+    containerButtonsCard.append(favoriteButton);
+
+    //Adding all components to the card
+    pokeCard.append(titleCard, pokeImg, containerButtonsCard);
+
+    return pokeCard;
+}
+
+const unitSearchContentSection = document.querySelector('.unitSearchContentNone');
+
+export async function searchUnitPokemon(name){
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+
+    if(!response.ok){
+        alert("Invalid Pokemon Name");
+        return;
+    }else{
+
+        const data = await response.json();
+        console.log(data.name);
+        
+        console.log('Pokemon found');
+
+        unitSearchContentSection.innerHTML="";
+        unitSearchContentSection.classList.add('unitSearchContent');
+        unitSearchContentSection.append(createCard(data.name, data.sprites.front_default));        
+    }
+
+}
+
+export function cleanSections(){
+    unitSearchContentSection.innerHTML = "";
+    getListContent.innerHTML = "";
+    //Tengo que reiniciar la URL 
+    nextUrl = 'https://pokeapi.co/api/v2/pokemon?limit=40';
+    getListButton.textContent = "Check all pokemon";
+}
+export function createCardFavorite(name, img) {
+
+
+    //Card 
+    const pokeCard = document.createElement('div');
+    pokeCard.classList.add('pokeCard');
+    pokeCard.id = 'pokeCardId' + counter2;
+
+    //TITLE CARD
+    const titleCard = document.createElement('p');
+    titleCard.classList.add('titleCard')
+    titleCard.innerText = name;
+
+    //Image
+    const pokeImg = document.createElement('img');
+    pokeImg.id = "imgCard";
+    pokeImg.src = img;
+
+
+    //container
+    const containerButtonsCard = document.createElement('div');
+    containerButtonsCard.classList.add('cardButtonSection');
+
+    //card buttons
+    const deleteButton = document.createElement('i');
+    deleteButton.classList.add('bx');
+    deleteButton.classList.add('bxs-trash-alt');
+    deleteButton.id = 'deleteButton';
+
+    containerButtonsCard.append(deleteButton);
+
+    //Adding all components to the card
+    pokeCard.append(titleCard, pokeImg, containerButtonsCard);
+
+    return pokeCard;
+}
+
+const favoriteContainer = document.querySelector('.favoritesSectionNone');
+export function addToFavorite(e){
+
+    favoriteContainer.classList.add('favoritesSection');
+
+    let cardToSend = e.target.parentNode.parentNode;
+
+    favoriteContainer.append(cardToSend);
+    console.log("Se Ejecuto todo");
+    
+
+
 }

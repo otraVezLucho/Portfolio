@@ -119,12 +119,18 @@
             <button class="button" id="deleteTask">Delete Task</button>
         </div>
     </section>
+
     <section id="showPokeApiSection" class="projectsSectionNoActive">
         <div class="containerPokeAPI">
             <div class="searchSection">
                 <div class="searchRaw">
-                    <input type="text" class="searchInput" placeholder="Enter a pokemon name here!">
+                    <input type="text" class="searchInput" id="searchInputId" placeholder="Enter a pokemon name here!">
                     <button type="button" class="searchPokemonButton"> <i class='bx bx-search'></i> </button>
+                    <button type="button" class="clearAllButton"> <i>Clear All</i> </button>
+                </div>
+                
+                <div class="unitSearchContentNone" id="unitSearchContent">
+                
                 </div>
                 <div class="listContainer">
                     <button type="getPokemonList" class="getListButton"> Check all pokemon</button>
@@ -139,12 +145,15 @@
             </div>
         </div>
     </section>
+
     <section id="showNasaApiSection" class="projectsSectionNoActive">
 
     </section>
+
     <section id="showStoreCatalogSection" class="projectsSectionNoActive">
 
     </section>
+
     <section id="showNavBarsSection" class="projectsSectionNoActive">
 
     </section>
