@@ -171,3 +171,17 @@ function deleteCard (e){
         favoriteContainer.classList.add('favoritesSectionNone');
     }
 }
+
+
+const buttonClearAllF = document.querySelector('.clearAllButtonFavorite');
+buttonClearAllF.addEventListener('click', clearAllFavorites)
+
+
+function clearAllFavorites(){
+        const favoriteCardContainer = document.querySelector('.favoriteCardContainer');
+        favoriteCardContainer.innerHTML = "";
+        favoriteContainer.classList.remove('favoritesSection');
+        favoriteContainer.classList.add('favoritesSectionNone');
+    
+
+}
