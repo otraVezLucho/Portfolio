@@ -405,22 +405,87 @@ body {
     display: none;
 }
 
-.searchSection{
+@media (min-width: 1024px) {
+    .searchSection {
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 310px;
+        height: auto;
+        border: 2px solid white;
+        border-radius: 15px;
+        display: flex;
+        flex-flow: column;
+        padding-bottom: 15px;
+        margin: 5px;
+    }
+
+    .favoritesSection {
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        max-height: 341px;
+        
+        border: 2px solid white;
+        border-radius: 15px;
+        display: flex;
+        flex-flow: wrap;
+        padding-bottom: 15px;
+        min-width: 310px;
+        justify-content: center;
+        margin: 5px;
+    }
+}
+
+@media (min-width: 768px) {
+    .searchSection {
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 310px;
+        height: auto;
+        border: 2px solid white;
+        border-radius: 15px;
+        display: flex;
+        flex-flow: column;
+        padding-bottom: 15px;
+        margin: 5px;
+    }
+
+    .favoritesSection {
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        max-height: 341px;
+        
+        border: 2px solid white;
+        border-radius: 15px;
+        display: flex;
+        flex-flow: wrap;
+        padding-bottom: 15px;
+        min-width: 310px;
+        justify-content: center;
+        margin: 5px;
+    }
+}
+
+.searchSection {
     box-sizing: border-box;
-    width: 49%;
+    width: 100%;
+    min-width: 310px;
     height: auto;
     border: 2px solid white;
     border-radius: 15px;
     display: flex;
     flex-flow: column;
     padding-bottom: 15px;
-
+    margin: 5px;
 }
+
 .favoritesSection {
     box-sizing: border-box;
-    width: 49%;
-    height: 341px;
-    overflow-y: auto;
+    width: 100%;
+    height: auto;
+    max-height: 341px;
+    
     border: 2px solid white;
     border-radius: 15px;
     display: flex;
@@ -428,17 +493,32 @@ body {
     padding-bottom: 15px;
     min-width: 310px;
     justify-content: center;
+    margin: 5px;
 }
-.favoritesSection::-webkit-scrollbar {
+
+.favoriteCardContainer{
     
+    width: 100%;
+    height: auto;
+    max-height:220px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    
+}
+
+.favoriteCardContainer::-webkit-scrollbar {
+
     width: 8px;
 }
-.favoritesSection::-webkit-scrollbar-track {
+
+.favoriteCardContainer::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
-.favoritesSection::-webkit-scrollbar-thumb {
+.favoriteCardContainer::-webkit-scrollbar-thumb {
     background: rgb(255, 107, 107);
     border-radius: 10px;
 }
@@ -540,7 +620,7 @@ body {
     height: auto;
     max-height: 200px;
     overflow-y: auto;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     margin-top: 5px;
     justify-content: center;
@@ -641,6 +721,8 @@ body {
     width: 80%;
     text-align: center;
     margin-bottom: 5px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #favoriteButton {
@@ -652,10 +734,47 @@ body {
 #deleteButton {
     color: red;
     cursor: pointer;
+    transform: scale(1.5);
 }
 
 
 #favoriteButton:hover,
 #deleteButton:hover {
     transform: scale(1.6);
+}
+
+/**/
+.containerButtonsFavorite {
+    height: 50px;
+    
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    text-align: center;
+    align-content: center;
+
+}
+
+.clearAllButtonFavorite {
+    border-radius: 50px;
+    border: none;
+    width: auto;
+    height: 35px;
+    cursor: pointer;
+    background-color: rgb(255, 107, 107);
+    margin: 0 auto;
+    font-weight: bold;
+
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.clearAllButtonFavorite i {
+    font-style: normal;
+}
+
+
+.clearAllButtonFavorite:hover {
+    background-color: #919191;
+    color: white;
 }
