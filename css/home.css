@@ -424,7 +424,7 @@ body {
         width: 100%;
         height: auto;
         max-height: 341px;
-        
+
         border: 2px solid white;
         border-radius: 15px;
         display: flex;
@@ -455,7 +455,7 @@ body {
         width: 100%;
         height: auto;
         max-height: 341px;
-        
+
         border: 2px solid white;
         border-radius: 15px;
         display: flex;
@@ -485,7 +485,7 @@ body {
     width: 100%;
     height: auto;
     max-height: 341px;
-    
+
     border: 2px solid white;
     border-radius: 15px;
     display: flex;
@@ -496,16 +496,16 @@ body {
     margin: 5px;
 }
 
-.favoriteCardContainer{
-    
+.favoriteCardContainer {
+
     width: 100%;
     height: auto;
-    max-height:220px;
+    max-height: 220px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     overflow-y: auto;
-    
+
 }
 
 .favoriteCardContainer::-webkit-scrollbar {
@@ -746,7 +746,7 @@ body {
 /**/
 .containerButtonsFavorite {
     height: 50px;
-    
+
     width: 100%;
     margin-bottom: 15px;
     margin-top: 15px;
@@ -777,4 +777,136 @@ body {
 .clearAllButtonFavorite:hover {
     background-color: #919191;
     color: white;
+}
+
+
+/*Nasa Section style*/
+
+#showNasaApiSection {
+    min-height: 200px;
+}
+
+.nasaMain {
+    height: auto;
+    width: 100%;
+    background-image: url('../assets/spacebackground.jpg');
+    background-size: cover;
+    background-position-y: bottom;
+
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+@media (min-width: 1024px) {
+    .nasaMain {
+        background-position-y: bottom;
+    }
+}
+
+@media (min-width: 768px) {
+    .nasaMain {
+        background-position-y: bottom;
+    }
+
+}
+
+.imageAPODContainer {
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.336);
+    margin: 0 auto;
+    border-radius: 15px;
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    overflow: hidden;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.24);
+
+
+}
+
+.imgAPOD {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 0 15px black;
+
+}
+
+.titleImageAPOD {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgb(111, 0, 255);
+}
+
+.explanation {
+    font-size: 16px;
+    text-align: justify;
+}
+
+.infoAPOD {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .imageAPODContainer {
+        flex-flow: column;
+    }
+
+    .imgAPOD {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .infoAPOD {
+        width: 100%;
+
+    }
+
+    .titleImageAPOD {
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+        text-shadow: 0 0 5px rgb(111, 0, 255);
+    }
+
+    .explanation {
+        font-size: 20px;
+        text-align: justify;
+        
+    }
+}
+
+@media (min-width: 1024px) {
+    .imageAPODContainer {
+        flex-flow: row;
+    }
+
+    .imgAPOD {
+        width: 48%;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 0 15px black;
+    }
+
+    .infoAPOD {
+        width: 48%;
+        margin: 15px;
+    }
+
+    .titleImageAPOD {
+        font-size: 22px;
+        text-align: center;
+        font-weight: bold;
+        text-shadow: 0 0 5px rgb(111, 0, 255);
+    }
+
+    .explanation {
+        font-size: 20px;
+        
+        text-align: justify;
+    }
 }
