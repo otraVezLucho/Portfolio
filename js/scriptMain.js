@@ -1,7 +1,7 @@
 import { addTask, deleteTask  } from "../js/toDoscript.js";
 import { getPokemonList, searchUnitPokemon, cleanSections, addToFavorite } from '../js/pokeApi.js';
 import { showSection } from '../js/showSectionsProjects.js';
-import { getImageAPOD } from '../js/nasaApi.js';
+import { getNasaData } from '../js/nasaApi.js';
 /*
 document.addEventListener('DOMContentLoaded', ()=> {
 alert("✨ This experience is under wizard creation ✨\n\nFor the best magic, Please Rotate your phone ↻\nor open this on a desktop or laptop!")
@@ -70,4 +70,5 @@ reloadAll.addEventListener('click',cleanSections);
 
 const sectionNasa = document.getElementById('nasaApi');
 
-sectionNasa.addEventListener('click', getImageAPOD);
+sectionNasa.addEventListener('click', getNasaData);
+
