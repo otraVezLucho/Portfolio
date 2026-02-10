@@ -8,6 +8,21 @@ alert("✨ This experience is under wizard creation ✨\n\nFor the best magic, P
 });
 */
 
+const showSectionNavBar = document.querySelector('.navHeader');
+const buttonHamburger = document.getElementById('iconMenu');
+const buttonNavClose = document.querySelector('.headerButtonClose');
+ buttonHamburger.addEventListener('click', ()=>{
+     showSectionNavBar.classList.add('navHeaderSide')
+    
+    
+ });
+ buttonNavClose.addEventListener('click', ()=>{
+     showSectionNavBar.classList.remove('navHeaderSide')
+    
+    
+ });
+
+
 
 //esta funcion va a mostrar la seccion del proyecto seleccionado    
 document.addEventListener('click', function(e) {

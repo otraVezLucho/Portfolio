@@ -7,72 +7,126 @@ html {
 }
 
 header {
-    height: 60px;
-    min-width: 320px;
-    background-color: transparent;
-    box-shadow: 0 0 30px rgba(51, 255, 0, 0.2),
-        inset 0 0 10px rgba(51, 255, 0, 0.1);
-    color: rgb(226, 220, 255);
-    align-content: center;
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    box-shadow: inset 0 0 40px rgba(51, 255, 0, 0.199),
+        0 0 60px rgba(51, 255, 0, 0.199);
 
-}
-
-header:hover {
-    box-shadow: 0 0 30px rgba(51, 255, 0, 0.3),
-        inset 0 0 10px rgba(51, 255, 0, 0.15);
-}
-
-#navHeader {
-    display: inline-block;
-    align-content: center;
-    height: 60px;
 }
 
 #nombre {
-    display: inline-block;
-    margin-top: 0;
-    margin-bottom: 0;
-    height: 60px;
-    align-content: center;
-    color: #ffffff;
-    font-family: monospace;
-    font-size: 30px;
-}
-
-header ul {
-
-    display: inline-block;
-    margin-top: 0;
-    margin-bottom: 0;
-    height: 60px;
-    align-content: center;
-    padding-left: 0;
-
-
-}
-
-header li {
-    display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 15px;
-    padding-left: 15px;
-    color: #ffffff;
+    max-width: 150px;
     font-size: 20px;
+}
+
+#iconMenu,
+.headerButtonClose {
+    display: none;
+}
+
+
+.navUl {
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+    padding: 5px;
 
 }
 
-header li:hover {
-
-    background-color: #009b08;
-    box-shadow: 0 0 30px rgba(51, 255, 0, 0.7),
-        inset 0 0 10px rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    font-weight: bold;
-
+.navHeader li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    padding: 0 10px;
 }
+
+.navHeader li:hover {
+    box-shadow: inset 0 0 20px rgba(51, 255, 0, 0.7),
+        0 0 20px rgba(51, 255, 0, 0.7);
+    border: 2px solid #a7ee00;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+
+
+@media (max-width:425px) {
+    #iconMenu {
+        display: block;
+        scale: 1.9;
+    }
+
+    .headerButtonClose {
+        display: flex;
+        margin: 0 1rem;
+        padding: 10px 0 10px 0;
+        justify-content: center;
+        background-color: transparent;
+        color: white;
+        border: 0;
+        border-radius: 10px;
+        box-shadow: inset 0 0 40px rgba(51, 255, 0, 0.199);
+        font-weight: bold;
+
+    }
+
+    .headerButtonClose:hover {
+        box-shadow: inset 0 0 20px rgba(51, 255, 0, 0.7),
+            0 0 20px rgba(51, 255, 0, 0.7);
+        border: 2px solid #a7ee00;
+        cursor: pointer;
+    }
+
+
+    .navHeader {
+        display: none;
+    }
+
+    .navHeaderSide {
+
+        display: flex;
+        flex-flow: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5),
+            inset 0 0 40px rgba(51, 255, 0, 0.199);
+        background-color: black;
+        padding: 20px;
+        gap: 10px;
+
+
+    }
+
+    .navUl {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        gap: 1rem;
+        margin: 0;
+    }
+
+    .navHeader li a {
+        padding: 15px;
+
+    }
+
+    .navHeader li:hover {
+        width: 100%;
+        box-shadow: inset 0 0 20px rgba(51, 255, 0, 0.7),
+            0 0 20px rgba(51, 255, 0, 0.7);
+        border: 2px solid #a7ee00c9;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 10px;
+    }
+}
+
+
+
 
 body {
     background-color: rgb(0, 0, 0);
@@ -93,32 +147,33 @@ body {
     align-content: center;
     background-color: transparent;
 
+
+
     box-shadow: inset 0 0 30px rgba(51, 255, 0, 0.2);
 }
 
 .container-card img {
-    width: 25%;
-    min-height: 264px;
-    min-width: 193px;
+    max-width: 40%;
+    max-height: 315px;
     border-radius: 20px 0 0;
+    aspect-ratio: 3/4;
 }
 
-.container-card img:hover {
 
-    width: 25%;
-}
 
 #info-card {
     margin: auto auto;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding: 1rem;
     min-width: 320px;
     width: 750px;
+
+
 }
 
 #info-card h2 {
-    font-size: 40px;
+    font-size: 32px;
     margin-top: 0;
+    text-align: center
 }
 
 #sections-studies {
@@ -136,9 +191,60 @@ body {
     padding: 4%;
 }
 
-.container-studies p {
-    margin-top: 5px;
+.description {
+    margin: 0;
+
+    text-align: justify;
+
+
 }
+
+@media (max-width:768px) {
+
+    .container-card {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        padding-left: 16px;
+    }
+
+    .container-card .myPhoto {
+
+        height: 340px;
+        border-radius: 20px;
+        justify-content: center;
+    }
+
+    #info-card h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width:425px) {
+    .container-card {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        box-sizing: border-box;
+        padding-left: 0;
+
+    }
+
+    .container-card .myPhoto {
+        max-width: none;
+        width: 80%;
+        border-radius: 20px;
+        margin-top: 20px;
+        object-fit: cover;
+    }
+
+    #info-card {
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+}
+
 
 #container-studies1 {
     padding-bottom: 0;
@@ -271,9 +377,12 @@ body {
 
     box-shadow: inset 0 0 20px rgba(51, 255, 0, 0.7),
         0 0 20px rgba(51, 255, 0, 0.7);
-    border-radius: 40px;
+    border: 2px solid #a7ee00;
     cursor: pointer;
+    border-radius: 40px;
 }
+
+
 
 .projectsSectionNoActive {
     display: none;
@@ -298,6 +407,8 @@ body {
 
 /*toDo List style*/
 .toDoContainer {
+    display: flex;
+    flex-flow: column;
     margin: 20px;
     max-width: 400px;
     min-width: 320px;
@@ -305,6 +416,12 @@ body {
     background: linear-gradient(45deg, #1a1a1a, #002c02);
     border: 2px solid #4dc453;
     border-radius: 10px;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 1rem;
+
+
+
 }
 
 .toDoContainer:hover {
@@ -319,12 +436,13 @@ body {
 .toDoContainer #listTitle {
     text-align: center;
     color: aliceblue;
+
 }
 
 #textTaskId {
     height: 30px;
     width: 80%;
-    margin-left: 23px;
+
     border: 1px solid #00ee0c;
     border-radius: 15px;
     background-color: transparent;
@@ -347,7 +465,6 @@ body {
     border: 1px solid #00ee0c;
     border-radius: 15px;
     margin-top: 10px;
-    margin-left: 90px;
     font-size: 14px;
 }
 
@@ -359,7 +476,7 @@ body {
     border: 1px solid #00ee0c;
     border-radius: 15px;
     margin-top: 10px;
-    margin-left: 90px;
+    box-shadow: 0 0 15px black;
     font: size 15px;
     font-weight: bolder;
 }
@@ -368,15 +485,27 @@ body {
     margin-left: 10px;
 }
 
+#toDoList {
+    width: 100%;
+    margin: 1rem;
+    padding: 0;
+
+}
+
 .liListElement {
-    width: 80%;
+    width: 90%;
     border: 2px solid #002c02;
     margin-bottom: 2px;
+    margin: 0 10px;
+    display: flex;
+    height: auto;
+    word-break: break-all;
 
 }
 
 .textLabel {
     cursor: pointer;
+
 }
 
 .checkInput {
@@ -816,7 +945,7 @@ body {
     box-sizing: border-box;
     box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.336);
     margin: 0 auto;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
     display: flex;
     flex-flow: column;
     align-content: center;
@@ -838,11 +967,12 @@ body {
 
 .titleAPOD {
     font-size: 28px;
-        text-align: center;
-        font-weight: bold;
-        text-decoration:underline;
-        text-shadow: 0 0 5px rgb(71, 71, 71);
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+    text-shadow: 0 0 5px rgb(71, 71, 71);
 }
+
 .titleImageAPOD {
     font-size: 24px;
     text-align: center;
@@ -884,7 +1014,7 @@ body {
     .explanation {
         font-size: 20px;
         text-align: justify;
-        
+
     }
 }
 
@@ -914,25 +1044,50 @@ body {
 
     .explanation {
         font-size: 18px;
-        
+
         text-align: justify;
     }
 }
 
+.searchAPODByDay {
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.336);
+    margin: 0 auto;
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    flex-flow: row;
+    align-content: center;
+    overflow: hidden;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.24);
+    justify-content: center;
+}
 
-.asteroidsContainer{
+.searchAPODByDay input {
+    width: 120px;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+
+.asteroidsContainer {
     width: 100%;
     height: auto;
     padding-bottom: 0;
+
 }
 
-.nearObjectsTitle{
+.nearObjectsTitle {
+    font-size: 28px;
     text-align: center;
     font-weight: bold;
-    font-size: 24px;
-    text-shadow: 0 0 5px red;
+    text-decoration: underline;
+    text-shadow: 0 0 5px rgb(71, 71, 71);
 }
-.nearObjectsContainerList{
+
+.nearObjectsContainerList {
     width: 100%;
     height: auto;
     backdrop-filter: blur(5px);
@@ -940,11 +1095,337 @@ body {
     box-shadow: inset 0 0 20px rgba(204, 204, 204, 0.219);
     border-radius: 15px;
     margin-top: 20px;
-    
-    box-sizing:border-box ;
+
+    box-sizing: border-box;
     padding: 15px;
 }
-.itemObjectList{
+
+.itemObjectList {
     font-weight: 600;
-    margin: 5px ;
+    margin: 5px;
+}
+
+.searchAPODByDay {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.searchAPODByDay label {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    align-content: center;
+}
+
+.searchAPODByDay input,
+.searchAPODByDay button {
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 35px;
+    width: 110px;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: inset 0 0 15px rgba(0, 0, 255, 0.733);
+    border: transparent;
+    color: black;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.searchAPODByDay button {
+    width: 120px;
+}
+
+.searchAPODByDay #dateInput::-webkit-calendar-picker-indicator {
+    color: white;
+    cursor: pointer;
+}
+
+.searchAPODByDay input:hover,
+.searchAPODByDay button:hover {
+    box-shadow: inset 0 0 60px rgb(0, 0, 255),
+        0 0 10px rgba(0, 0, 255, 0.418);
+    color: white;
+
+}
+
+.earthPolychromatic {
+    width: 100%;
+    height: auto;
+    backdrop-filter: blur(5px);
+    background-color: rgba(7, 139, 13, 0.123);
+    box-shadow: inset 0 0 20px rgba(204, 204, 204, 0.219);
+    border-radius: 15px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 15px;
+
+}
+
+.earthPhotosTitle {
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+    text-shadow: 0 0 5px rgb(71, 71, 71);
+}
+
+.titleImg {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgb(0, 155, 59);
+}
+
+.titleAndImg {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.imgEPIC {
+    width: 60%;
+    border-radius: 15px;
+    box-shadow: 0 0 15px black;
+}
+
+.searchearthPolychromaticByDay {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.searchearthPolychromaticByDay label {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    align-content: center;
+
+    text-align: justify;
+}
+
+.searchearthPolychromaticByDay input,
+.searchearthPolychromaticByDay button {
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 35px;
+    width: 110px;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: inset 0 0 15px rgba(0, 255, 21, 0.40);
+    border: transparent;
+    color: black;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.searchearthPolychromaticByDay input {
+    margin-left: 15px;
+}
+
+.searchearthPolychromaticByDay button {
+    width: 120px;
+}
+
+.searchearthPolychromaticByDay #dateInput::-webkit-calendar-picker-indicator {
+    color: white;
+    cursor: pointer;
+}
+
+.searchearthPolychromaticByDay input:hover,
+.searchearthPolychromaticByDay button:hover {
+    box-shadow: inset 0 0 60px rgba(0, 255, 21, 0.40),
+        0 0 10px rgba(0, 255, 21, 0.40);
+    color: black
+}
+
+#projectButtonsContainerEcommerce {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-around;
+    align-content: center;
+    padding: 1rem;
+}
+
+.containerImagePetsStore,
+.containerImageIceCreamStore {
+    display: block;
+    width: 45%;
+    min-width: 320px;
+    justify-content: center;
+    box-shadow: inset 0 0 30px rgba(51, 255, 0, 0.2);
+    border-radius: 20px;
+    padding: 1rem;
+    box-sizing: border-box;
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.containerImagePetsStore::-webkit-scrollbar {
+    width: 8px;
+}
+
+.containerImagePetsStore::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.containerImagePetsStore::-webkit-scrollbar-thumb {
+    background: rgba(51, 255, 0, 0.2);
+    border-radius: 10px;
+    position: relative;
+    top: 5px;
+}
+
+
+.containerImageIceCreamStore::-webkit-scrollbar {
+    width: 8px;
+}
+
+.containerImageIceCreamStore::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+}
+
+.containerImageIceCreamStore::-webkit-scrollbar-thumb {
+    background: rgba(51, 255, 0, 0.2);
+    border-radius: 10px;
+    position: relative;
+    top: 5px;
+}
+
+.petsStoreImg,
+.byteAndCreamStoreImg {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: none;
+
+}
+
+@media (max-width:768px) {
+    #projectButtonsContainerEcommerce {
+
+        flex-flow: column;
+        gap: 1rem;
+    }
+
+    .containerImagePetsStore,
+    .containerImageIceCreamStore {
+        width: 100%;
+    }
+}
+
+footer {
+    background-color: rgb(24, 32, 23);
+    height: 150px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+
+
+.contactInfoContainer, .containerName, .socialMediaContainer{
+    width: 301px;
+}
+
+
+
+
+.contactInfoContainer {
+    align-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+.personalInfoList {
+    display: flex;
+    flex-flow: column;
+    list-style-type: none;
+    padding: 0.5rem;
+    text-align: left;
+    margin: 0;
+    gap: 2px;
+}
+
+
+
+personalInfoList li {}
+
+.personalInfoList p {
+    text-align: left;
+    font-weight: bold;
+    margin: 0;
+}
+
+.containerName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.innerContainerName {
+    width: auto;
+    padding: 0 1rem;
+    box-shadow: inset 0 0 10px rgba(51, 255, 0, 0.7),
+        0 0 10px rgba(51, 255, 0, 0.7);
+    border: 2px solid #a7ee00;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+
+.innerContainerName p {
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    width: auto;
+}
+
+.socialMediaContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SocialMedia {
+    width: auto;
+}
+
+.SocialMedia i {
+    font-size: 50px;
+    color: white;
+    text-shadow: 0 0 15px rgba(51, 255, 0, 0.7);
+}
+@media (max-width:425px) {
+
+    footer {
+        flex-flow: column;
+        height: auto;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .contactInfoContainer {
+        padding: 0;
+
+    }
+
+    .personalInfoList,
+    .personalInfoList p {
+        text-align: center;
+    }
 }

@@ -7,27 +7,29 @@
     <title>HomeLuisDev</title>
     <link rel="stylesheet" href="./css/home.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
+
 </head>
 
 <body>
     <header>
         <h1 id="nombre">Luis Villada Dev</h1>
-        <nav id="navHeader">
-
-            <ul>
-                <li>Background</li>
-                <li>Skills</li>
-                <li>Projects</li>
-                <li>Studies</li>
+        <i class='bx bx-menu' id="iconMenu"></i>
+        <nav class="navHeader">
+            <button class="headerButtonClose">Close</button>
+            <ul class="navUl">
+                <li><a href="">Background</a></li>
+                <li><a href="">Skills</a></li>
+                <li><a href="">Projects</a></li>
+                <li><a href="">Studies</a></li>
             </ul>
         </nav>
     </header>
     <section class="container-card">
-        <img src="/assets/Lv.jpeg" alt="Luis Villada Image">
+        <img src="/assets/Lv.jpeg" alt="Luis Villada Image" class="myPhoto">
         <div id="info-card">
             <h2>Luis Alonso Villada Vega</h2>
-            <p>I'm a Full Stack Java Developer with experience building secure, high-performance web applications. I
+            <p class="description">I'm a Full Stack Java Developer with experience building secure, high-performance web
+                applications. I
                 work with Spring Boot for the backend, MySQL as the database, and create clean, responsive, and
                 user-friendly interfaces using HTML, CSS, JavaScript, and Bootstrap. I'm also comfortable integrating
                 and consuming APIs smoothly.
@@ -88,6 +90,28 @@
             </div>
         </div>
     </section>
+    <!-- Ir completando e ir agregando
+    
+<section id="sectionProyectSelector">
+
+    <div id="projectText">
+        <h2>Here some frontend projects</h2>
+        <p>¡Hit a button and watch the magic happen!</p>
+    </div>
+
+    <div id="projectButtonsContainer">
+        <button class="projectButton" id="tasklist">Task List</button>
+        <button class="projectButton" id="pokeApi">Poke API</button>
+        <button class="projectButton" id="nasaApi">Nasa API</button>
+        <button class="projectButton" id="storeCatalog">Store Catalog</button>
+        <button class="projectButton" id="navbars">Nav Bars</button>
+        <button class="projectButton" id="cards">Cards</button>
+        <button class="projectButton" id="shoppingCarts">Shopping Carts</button>
+    </div>
+</section>
+
+-->
+
 
     <section id="sectionProyectSelector">
 
@@ -100,12 +124,11 @@
             <button class="projectButton" id="tasklist">Task List</button>
             <button class="projectButton" id="pokeApi">Poke API</button>
             <button class="projectButton" id="nasaApi">Nasa API</button>
-            <button class="projectButton" id="storeCatalog">Store Catalog</button>
-            <button class="projectButton" id="navbars">Nav Bars</button>
-            <button class="projectButton" id="cards">Cards</button>
-            <button class="projectButton" id="shoppingCarts">Shopping Carts</button>
+
         </div>
     </section>
+
+
 
     <section id="showTaskListSection" class="projectsSectionNoActive">
         <div class="toDoContainer">
@@ -114,9 +137,12 @@
 
             </ul>
             <input type="textTask" id="textTaskId" placeholder="Enter a Task">
+            <div class="taskButtons">
 
-            <button class="button" id="addTask"> Add Task </button>
-            <button class="button" id="deleteTask">Delete Task</button>
+                <button class="button" id="addTask"> Add Task </button>
+                <button class="button" id="deleteTask">Delete Task</button>
+
+            </div>
         </div>
     </section>
 
@@ -128,15 +154,15 @@
                     <button type="button" class="searchPokemonButton"> <i class='bx bx-search'></i> </button>
                     <button type="button" class="clearAllButton"> <i>Clear All</i> </button>
                 </div>
-                
+
                 <div class="unitSearchContentNone" id="unitSearchContent">
-                
+
                 </div>
                 <div class="listContainer">
                     <button type="getPokemonList" class="getListButton"> Check all pokemon</button>
                 </div>
                 <div class="listContent">
-                   
+
                 </div>
 
             </div>
@@ -145,7 +171,7 @@
                     <button type="button" class="clearAllButtonFavorite"> <i>Clear All Favorites</i> </button>
                 </div>
                 <div class="favoriteCardContainer">
-                    
+
                 </div>
 
             </div>
@@ -155,7 +181,7 @@
     <section id="showNasaApiSection" class="projectsSectionNoActive">
         <div class="nasaMain">
             <div class="imageAPODContainer">
-                
+
                 <img class="imgAPOD">
 
                 <div class="infoAPOD">
@@ -163,11 +189,33 @@
                     <P class="titleImageAPOD"></P>
                     <p class="explanation"></p>
                 </div>
-                <div class="searchAPODByDay"></div>
-                
+
             </div>
+
+            <div class="searchAPODByDay">
+                <label for="dateInput" class="labelPickDate"> Pick a date and the picture will change</label>
+                <input type="date" id="dateInput" name="dateInput">
+                <button type="button" class="buttonGetImage"> Get Image </button>
+
+            </div>
+
+            <div class="earthPolychromatic">
+                <div class="titleAndImg">
+                    <p class="earthPhotosTitle">Earth Polychromatic Imaging Camera</p>
+                    <img class="imgEPIC" alt="Earth Polychromatic Imaging Camera">
+                </div>
+
+                <div class="searchearthPolychromaticByDay">
+                    <label for="dateInputEpic" class="labelPickDateEPIC"> Pick a date and the picture will
+                        change</label>
+                    <input type="date" id="dateInputEpic" name="dateInputEpic">
+                    <button type="button" class="buttonGetImageEPIC"> Get Image </button>
+                </div>
+
+            </div>
+
             <div class="asteroidsContainer">
-                
+
                 <div class="nearObjectsContainerList">
                     <p class="nearObjectsTitle">Near Earth Objects</p>
                     <ul class="listNearEarthObjects">
@@ -193,7 +241,49 @@
     <section id="showShoppingCartsSection" class="projectsSectionNoActive">
 
     </section>
+    <section id="sectionProyectSelector">
 
+        <div id="projectText">
+            <h2>E-commerce projects</h2>
+        </div>
+
+        <div id="projectButtonsContainerEcommerce">
+            <div class="containerImagePetsStore">
+                <img src="./assets/bonespetstreats.png" alt="pets store image" class="petsStoreImg">
+            </div>
+            <div class="containerImageIceCreamStore">
+
+                <img src="./assets/Byte&CreamWebsite.png" alt="icecream store image" class="byteAndCreamStoreImg">
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="contactInfoContainer">
+            <ul class="personalInfoList">
+                <p>Contact Info</p>
+                <li>Email - otrodeluisvillada@gmail.com</li>
+                <li>Whats App - +57 3213302400</li>
+                <li> Chia - Cundinamarca</li>
+                <li> Colombia</li>
+            </ul>
+        </div>
+        <div class="containerName">
+            <div class="innerContainerName">
+                <p>Luis Villada Dev</p>
+            </div>
+
+        </div>
+        <div class="socialMediaContainer">
+            <div class="SocialMedia">
+                <a href="https://www.instagram.com/lussho.vi/"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/luisvilladadev/?locale=en_US"><i class='bx bxl-linkedin-square'></i></a>
+                <a href="https://github.com/otraVezLucho"><i class='bx bxl-github'></i></a>
+            
+            </div>
+        </div>
+    </footer>
     <script type="module" src="/js/scriptMain.js"></script>
 </body>
 
