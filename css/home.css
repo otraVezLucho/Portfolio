@@ -52,7 +52,7 @@ header {
 
 
 
-@media (max-width:425px) {
+@media (max-width:460px) {
     #iconMenu {
         display: block;
         scale: 1.9;
@@ -220,7 +220,7 @@ body {
     }
 }
 
-@media (max-width:425px) {
+@media (max-width:460px) {
     .container-card {
         display: flex;
         flex-flow: column;
@@ -1410,7 +1410,7 @@ personalInfoList li {}
     color: white;
     text-shadow: 0 0 15px rgba(51, 255, 0, 0.7);
 }
-@media (max-width:425px) {
+@media (max-width:460px) {
 
     footer {
         flex-flow: column;
